@@ -1,0 +1,43 @@
+.about-jobminglr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  
+  .about-jobminglr .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .about-jobminglr .about-image {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .about-jobminglr .about-content {
+    flex: 2;
+  }
+  
+  .about-jobminglr h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-jobminglr h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-jobminglr ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .about-jobminglr ul li {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  
