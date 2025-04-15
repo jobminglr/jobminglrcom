@@ -1,12 +1,12 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout1 from "../components/Layout1"
+import SEO1 from "../components/SEO1"
 
 const UsingSSR = ({ serverData }) => {
   return (
-    <Layout>
+    <Layout1>
       <h1>
         This page is <b>rendered server-side</b>
       </h1>
@@ -28,11 +28,11 @@ const UsingSSR = ({ serverData }) => {
         .
       </p>
       <Link to="/">Go back to the homepage</Link>
-    </Layout>
+    </Layout1>
   )
 }
 
-export const Head = () => <Seo title="Using SSR" />
+export const Head = () => <SEO1 title="Using SSR" />
 
 export default UsingSSR
 

@@ -1,26 +1,12 @@
 import * as React from "react"
-import { Link } from "gatsby"
-
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import SEO1 from "../components/SEO1"
 
 const UsingDSG = () => (
-  <Layout>
-    <h1>
-      Hello from a <b>DSG Page</b>
-    </h1>
-    <p>This page is not created until requested by a user.</p>
-    <p>
-      To learn more, head over to our{" "}
-      <a href="https://www.gatsbyjs.com/docs/reference/rendering-options/deferred-static-generation/">
-        documentation about Deferred Static Generation
-      </a>
-      .
-    </p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
+  <div>
+   Hi
+  </div>
 )
 
-export const Head = () => <Seo title="Using DSG" />
+export const Head = () => <SEO1 title="Using DSG" />
 
 export default UsingDSG

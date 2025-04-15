@@ -6,11 +6,11 @@ const About = () => {
     <section className="about-jobminglr">
       <div className="container">
         <div className="about-image">
-          <StaticImage 
-            src="../images/JobApplication.jpg" 
-            alt="Team Photo" 
-            placeholder="blurred" 
-            layout="constrained" 
+          <StaticImage
+            src="../images/JobApplication.jpg"
+            alt="Team Photo"
+            placeholder="blurred"
+            layout="constrained"
           />
         </div>
 

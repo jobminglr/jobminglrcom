@@ -1,0 +1,29 @@
+/* src/styles/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Additional global styles (if any) can go here */
+html {
+  scroll-behavior: smooth;
+}
+
+.social-media-icons a {
+  margin: 0 10px;  /* Adjust the spacing between icons */
+}
+
+
+@keyframes fade-in-out {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 4s ease-in-out forwards;
+}
+
+.filter-orange {
+  filter: brightness(0) saturate(100%) invert(45%) sepia(88%) saturate(693%) hue-rotate(341deg) brightness(98%) contrast(98%);
+}
