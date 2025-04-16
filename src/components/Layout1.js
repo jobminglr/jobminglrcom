@@ -1,30 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header1";
 import Footer from "./Footer";
 import { StaticImage } from 'gatsby-plugin-image'
 
 const Layout1 = ({ children }) => {
+  const [appLink, setAppLink] = useState('');
 
-  const getAppLink = () => {
-    if (typeof window !== "undefined") {
-      const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      const isAndroidDevice = /Android/i.test(navigator.userAgent);
-      console.log("navigator.userAgent", navigator.userAgent);
+  useEffect(() => {
+    const getAppLink = () => {
+      try {
+        if (typeof window !== 'undefined') {
+          const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+          const isAndroidDevice = /Android/i.test(navigator.userAgent);
 
-      if (isAppleDevice) {
-        console.log("APPLE DEVICE");
-        return "https://apps.apple.com/us/app/jobminglr/id6738838504";
-      } else if (isAndroidDevice) {
-        console.log("ANDROID DEVICE");
-        return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
-      } else {
-        console.log("OTHER DEVICE");
+          if (isAppleDevice) {
+            return "https://apps.apple.com/us/app/jobminglr/id6738838504";
+          } else if (isAndroidDevice) {
+            return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
+          } else {
+            return "https://www.jobminglr.app/";
+          }
+        }
+      } catch (e) {
         return "https://www.jobminglr.app/";
       }
-    }
-  };
+    };
 
-  const appLink = getAppLink();
+    // Set appLink only after component mounts
+    setAppLink(getAppLink());
+  }, []); // Empty dependency array means this runs only once after initial render
 
   return (
     <>

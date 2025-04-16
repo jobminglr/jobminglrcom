@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
 import { Link } from "gatsby";
@@ -9,6 +9,7 @@ import { getImage } from "gatsby-plugin-image";
 const HomePage = () => {
   const [showToast, setShowToast] = useState(false);
   const [email, setEmail] = useState("");
+  const [appLink, setAppLink] = useState('');
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
@@ -46,30 +47,30 @@ const HomePage = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const getAppLink = () => {
-    try {
-      if (typeof window !== "undefined") {
-        const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const isAndroidDevice = /Android/i.test(navigator.userAgent);
-        console.log("navigator.userAgent", navigator.userAgent);
+  useEffect(() => {
+    const getAppLink = () => {
+      try {
+        if (typeof window !== 'undefined') {
+          const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+          const isAndroidDevice = /Android/i.test(navigator.userAgent);
 
-        if (isAppleDevice) {
-          console.log("APPLE DEVICE");
-          return "https://apps.apple.com/us/app/jobminglr/id6738838504";
-        } else if (isAndroidDevice) {
-          console.log("ANDROID DEVICE");
-          return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
-        } else {
-          console.log("OTHER DEVICE");
-          return "https://www.jobminglr.app/";
+          if (isAppleDevice) {
+            return "https://apps.apple.com/us/app/jobminglr/id6738838504";
+          } else if (isAndroidDevice) {
+            return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
+          } else {
+            return "https://www.jobminglr.app/";
+          }
         }
+      } catch (e) {
+        return "https://www.jobminglr.app/";
       }
-    } catch (e) {
-      return "https://www.jobminglr.app/";
-    }
-  };
+    };
 
-  const appLink = getAppLink();
+    // Set appLink only after component mounts
+    setAppLink(getAppLink());
+  }, []); // Empty dependency array means this runs only once after initial render
+
 
   const data = useStaticQuery(graphql`
     query {

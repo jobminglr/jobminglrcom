@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
 
         <button
-          className="md:hidden text-brandGreen focus:outline-none"
+          className="md:hidden text-brandGreen focus:outline-none text-4xl"
           aria-label="Toggle menu"
           onClick={() => setMenuOpen(!menuOpen)}
         >
