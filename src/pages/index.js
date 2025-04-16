@@ -94,7 +94,7 @@ const HomePage = () => {
         style={{ backgroundImage: `url(${imageUrl})` }}
       >
         <div className="absolute inset-0 bg-brandGreen opacity-80" />
-        <div className="relative z-10">
+        <div className="relative">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Swipe. Connect. Hired.
           </h1>
