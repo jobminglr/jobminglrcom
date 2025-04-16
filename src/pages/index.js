@@ -88,41 +88,6 @@ const HomePage = () => {
         description="JobMinglr – Swipe to hire platform connecting job seekers and recruiters. Find jobs or candidates with a swipe."
       />
 
-      <section className="bg-brandGreen text-white text-center py-20 px-4 relative">
-        <StaticImage
-          src="../images/JobApplication.jpg"
-          alt="JobMinglr Hero"
-          className="absolute inset-0 w-full h-full opacity-30 object-cover"
-        />
-        <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Swipe. Connect. Hired.</h1>
-          <p className="text-lg sm:text-xl mb-8">
-            Your next career move is just a swipe away. Join JobMinglr and experience a new way to find the perfect match.
-          </p>
-          <div className="flex justify-center flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
-            <Link
-              to="/features"
-              className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
-            >
-              Learn How It Works
-            </Link>
-            <Link
-              to={appLink}
-              target="_blank"
-              className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
-            >
-              Download JobMinglr
-            </Link>
-          </div>
-          <span
-            className="block text-3xl mt-12 animate-bounce cursor-pointer"
-            onClick={() => scrollToSection("jobMinglrForSection")}
-          >
-            ⌄
-          </span>
-        </div>
-      </section>
-
       <section
         className="bg-brandGreen text-white text-center py-20 px-4 relative bg-cover bg-center"
         style={{ backgroundImage: `url(${imageUrl})` }}
