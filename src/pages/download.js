@@ -7,15 +7,24 @@ import bannerImg from "../images/qr.png";
 const DownloadPage = () => {
 
   const getAppLink = () => {
-    const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isAndroidDevice = /Android/i.test(navigator.userAgent);
+    try {
+      if (typeof window !== "undefined") {
+        const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAndroidDevice = /Android/i.test(navigator.userAgent);
+        console.log("navigator.userAgent", navigator.userAgent);
 
-    if (isAppleDevice) {
-      return "https://apps.apple.com/us/app/jobminglr/id6738838504";
-    } else if (isAndroidDevice) {
-      return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
-    } else {
-      // Web browser, return the website link
+        if (isAppleDevice) {
+          console.log("APPLE DEVICE");
+          return "https://apps.apple.com/us/app/jobminglr/id6738838504";
+        } else if (isAndroidDevice) {
+          console.log("ANDROID DEVICE");
+          return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
+        } else {
+          console.log("OTHER DEVICE");
+          return "https://www.jobminglr.app/";
+        }
+      }
+    } catch (e) {
       return "https://www.jobminglr.app/";
     }
   };

@@ -3,6 +3,8 @@ import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 
 const HomePage = () => {
   const [showToast, setShowToast] = useState(false);
@@ -45,20 +47,39 @@ const HomePage = () => {
   };
 
   const getAppLink = () => {
-    const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isAndroidDevice = /Android/i.test(navigator.userAgent);
+    try {
+      if (typeof window !== "undefined") {
+        const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAndroidDevice = /Android/i.test(navigator.userAgent);
+        console.log("navigator.userAgent", navigator.userAgent);
 
-    if (isAppleDevice) {
-      return "https://apps.apple.com/us/app/jobminglr/id6738838504";
-    } else if (isAndroidDevice) {
-      return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
-    } else {
-      // Web browser, return the website link
+        if (isAppleDevice) {
+          console.log("APPLE DEVICE");
+          return "https://apps.apple.com/us/app/jobminglr/id6738838504";
+        } else if (isAndroidDevice) {
+          console.log("ANDROID DEVICE");
+          return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
+        } else {
+          console.log("OTHER DEVICE");
+          return "https://www.jobminglr.app/";
+        }
+      }
+    } catch (e) {
       return "https://www.jobminglr.app/";
     }
   };
 
   const appLink = getAppLink();
+
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "JobApplication.jpg" }) {
+        publicURL
+      }
+    }
+  `);
+
+  const imageUrl = data.file.publicURL;
 
   return (
     <Layout1>
@@ -67,7 +88,6 @@ const HomePage = () => {
         description="JobMinglr – Swipe to hire platform connecting job seekers and recruiters. Find jobs or candidates with a swipe."
       />
 
-      {/* Hero Section with Image */}
       <section className="bg-brandGreen text-white text-center py-20 px-4 relative">
         <StaticImage
           src="../images/JobApplication.jpg"
@@ -103,7 +123,43 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Audience Section with Images */}
+      <section
+        className="bg-brandGreen text-white text-center py-20 px-4 relative bg-cover bg-center"
+        style={{ backgroundImage: `url(${imageUrl})` }}
+      >
+        <div className="absolute inset-0 bg-brandGreen opacity-80" />
+        <div className="relative z-10">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            Swipe. Connect. Hired.
+          </h1>
+          <p className="text-lg sm:text-xl mb-8">
+            Your next career move is just a swipe away. Join JobMinglr and
+            experience a new way to find the perfect match.
+          </p>
+          <div className="flex justify-center flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
+            <a
+              href="/features"
+              className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
+            >
+              Learn How It Works
+            </a>
+            <a
+              href={appLink}
+              target="_blank"
+              className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
+            >
+              Download JobMinglr
+            </a>
+          </div>
+          <span
+            className="block text-3xl mt-12 animate-bounce cursor-pointer"
+            onClick={() => scrollToSection("jobMinglrForSection")}
+          >
+            ⌄
+          </span>
+        </div>
+      </section>
+
       <section id="jobMinglrForSection" className="container mx-auto py-16 px-6 text-center">
         <h2 className="text-3xl font-bold mb-12">Who is JobMinglr for?</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">

@@ -4,17 +4,23 @@ import Footer from "./Footer";
 import { StaticImage } from 'gatsby-plugin-image'
 
 const Layout1 = ({ children }) => {
-  const getAppLink = () => {
-    const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isAndroidDevice = /Android/i.test(navigator.userAgent);
 
-    if (isAppleDevice) {
-      return "https://apps.apple.com/us/app/jobminglr/id6738838504";
-    } else if (isAndroidDevice) {
-      return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
-    } else {
-      // Web browser, return the website link
-      return "https://www.jobminglr.app/";
+  const getAppLink = () => {
+    if (typeof window !== "undefined") {
+      const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const isAndroidDevice = /Android/i.test(navigator.userAgent);
+      console.log("navigator.userAgent", navigator.userAgent);
+
+      if (isAppleDevice) {
+        console.log("APPLE DEVICE");
+        return "https://apps.apple.com/us/app/jobminglr/id6738838504";
+      } else if (isAndroidDevice) {
+        console.log("ANDROID DEVICE");
+        return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
+      } else {
+        console.log("OTHER DEVICE");
+        return "https://www.jobminglr.app/";
+      }
     }
   };
 
@@ -23,7 +29,7 @@ const Layout1 = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="pt-16">{/* ensure content is below fixed header */}
+      <main className="pt-16">
         {children}
       </main>
       <div className="fixed bottom-4 right-4 z-50">
