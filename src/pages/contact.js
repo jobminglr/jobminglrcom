@@ -5,11 +5,42 @@ import SEO1 from "../components/SEO1";
 
 const ContactPage = () => {
   const [showToast, setShowToast] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 5000);
+
+    // Prepare the data to send
+    const data = {
+      name,
+      email,
+      message,
+    };
+
+    try {
+      // Call the API using fetch
+      const response = await fetch("https://it96ohh4nc.execute-api.us-east-1.amazonaws.com/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 5000); // Hide toast after 5 seconds
+        setName(""); // Reset form fields
+        setEmail("");
+        setMessage("");
+      } else {
+        console.error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
@@ -44,6 +75,8 @@ const ContactPage = () => {
               id="name"
               name="name"
               required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brandGreen-light"
             />
           </div>
@@ -57,6 +90,8 @@ const ContactPage = () => {
               name="email"
               type="email"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brandGreen-light"
             />
           </div>
@@ -70,6 +105,8 @@ const ContactPage = () => {
               name="message"
               rows="5"
               required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-brandGreen-light"
             />
           </div>
@@ -87,7 +124,7 @@ const ContactPage = () => {
           <p>701 Brazos Street, Austin, TX 78701</p>
           <p>Phone: (512) 240-2349</p>
           <p>Email: <a href="mailto:support@jobminglr.com" className="text-brandGreen hover:underline">support@jobminglr.com</a></p>
-
+          <br />
           <h3 className="text-xl font-semibold mt-6 mb-2">Business Hours</h3>
           <p>Monday – Friday: 9:00 AM – 5:00 PM</p>
           <p>Saturday & Sunday: Closed</p>
