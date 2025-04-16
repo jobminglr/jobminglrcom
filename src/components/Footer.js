@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
 
         <p>&copy; 2025 JobMinglr. All rights reserved.</p>
-
+        {/* 
         <div className="mb-4 flex justify-center space-x-3">
           <Link to="/acceptable-use-1" className="hover:underline">Acceptable Use</Link>
           <Link to="/ai-principles" className="hover:underline">AI Principles</Link>
@@ -42,6 +42,18 @@ const Footer = () => {
           <Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link>
           <Link to="/security" className="hover:underline">Security</Link>
           <Link to="/terms-of-service" className="hover:underline">Terms of Service</Link>
+        </div> */}
+
+        <div className="mb-4 flex justify-center space-x-3 flex-wrap sm:flex-nowrap">
+          <Link to="/acceptable-use-1" className="hover:underline mb-2 sm:mb-0">Acceptable Use</Link>
+          <Link to="/ai-principles" className="hover:underline mb-2 sm:mb-0">AI Principles</Link>
+          <Link to="/ai-faqs" className="hover:underline mb-2 sm:mb-0">AI FAQs</Link>
+          <Link to="/disability-inclusion-1" className="hover:underline mb-2 sm:mb-0">Disability Inclusion Policy</Link>
+          <Link to="/privacy-center" className="hover:underline mb-2 sm:mb-0">Privacy Center</Link>
+          <Link to="/privacy-faqs" className="hover:underline mb-2 sm:mb-0">Privacy FAQs</Link>
+          <Link to="/privacy-policy" className="hover:underline mb-2 sm:mb-0">Privacy Policy</Link>
+          <Link to="/security" className="hover:underline mb-2 sm:mb-0">Security</Link>
+          <Link to="/terms-of-service" className="hover:underline mb-2 sm:mb-0">Terms of Service</Link>
         </div>
 
       </div>

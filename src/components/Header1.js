@@ -52,7 +52,7 @@ const Header = () => {
 
       {/* Mobile menu dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="md:hidden bg-white border-t border-gray-200 z-50">
           <Link to="/" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Home
           </Link>
