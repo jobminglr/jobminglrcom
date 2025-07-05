@@ -113,17 +113,18 @@ const HomePage = () => {
             <a
               href={appLink}
               target="_blank"
+              rel="noopener noreferrer"  // Added security
               className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
             >
               Download JobMinglr
             </a>
           </div>
-          <span
+          <button
             className="block text-3xl mt-12 animate-bounce cursor-pointer"
             onClick={() => scrollToSection("jobMinglrForSection")}
           >
             ⌄
-          </span>
+          </button>
         </div>
       </section>
 
@@ -200,7 +201,7 @@ const HomePage = () => {
         )}
       </section>
 
-      <a
+      <button
         href={appLink}
         target="_blank"
         rel="noopener noreferrer"
@@ -211,7 +212,7 @@ const HomePage = () => {
           alt="Download JobMinglr App"
           className="w-24 h-24 shadow-lg rounded"
         />
-      </a>
+      </button>
     </Layout1>
   );
 };
