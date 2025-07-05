@@ -26,21 +26,21 @@ const Header = () => {
           <Link to="/" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             Home
           </Link>
-          <Link to="/about" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
+          {/*<Link to="/about" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             About
           </Link>
           <Link to="/features" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             Features
           </Link>
-          {/* <Link to="/blog" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
+           <Link to="/blog" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             Blog
           </Link>
           <Link to="/testimonials" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             Testimonials
-          </Link> */}
+          </Link> 
           <Link to="/pricing" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             Pricing
-          </Link>
+          </Link>*/}
           <Link to="/contact" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             Contact
           </Link>

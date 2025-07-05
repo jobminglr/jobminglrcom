@@ -1,7 +1,6 @@
 // src/pages/testimonials.js
 import * as React from "react";
 import Layout1 from "../components/Layout1";
-import SEO1 from "../components/SEO1";
 
 const PricingsPage = () => {
   const plans = [

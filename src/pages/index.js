@@ -4,7 +4,6 @@ import SEO1 from "../components/SEO1";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
 
 const HomePage = () => {
   const [showToast, setShowToast] = useState(false);
@@ -93,22 +92,24 @@ const HomePage = () => {
         className="bg-brandGreen text-white text-center py-20 px-4 relative bg-cover bg-center"
         style={{ backgroundImage: `url(${imageUrl})` }}
       >
-        <div className="absolute inset-0 bg-brandGreen opacity-80" />
+        <div className="absolute inset-0 bg-brandGreen opacity-90" />
         <div className="relative">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-brandAccent"
+            style={{
+              textShadow: '.5px .5px 0px black, -.5px -.5px 0px black, .5px -.5px 0px black, -.5px .5px 0px black'
+            }}>
             Swipe. Connect. Hired.
           </h1>
           <p className="text-lg sm:text-xl mb-8">
-            Your next career move is just a swipe away. Join JobMinglr and
-            experience a new way to find the perfect match.
+            Your next career move is just a swipe away.
           </p>
           <div className="flex justify-center flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
-            <a
+            {/* <a
               href="/features"
               className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
             >
               Learn How It Works
-            </a>
+            </a> */}
             <a
               href={appLink}
               target="_blank"

@@ -1,7 +1,6 @@
 // src/pages/testimonials.js
 import * as React from "react";
 import Layout1 from "../components/Layout1";
-import SEO1 from "../components/SEO1";
 import bannerImg from "../images/qr.png";
 
 const DownloadPage = () => {
@@ -39,7 +38,7 @@ const DownloadPage = () => {
           JobMinglr offers a range of features designed to make hiring and job seeking more efficient and enjoyable. Here’s a closer look at what you can do on our platform:
         </p>
 
-        <div className="mb-12 rounded-2xl transform transition-transform duration-500 hover:scale-110 object-cover" onClick={() => {
+        <button className="mb-12 rounded-2xl transform transition-transform duration-500 hover:scale-110 object-cover" onClick={() => {
           window.open(appLink, '_blank');
         }}>
           <img
@@ -47,7 +46,7 @@ const DownloadPage = () => {
             alt="JobMinglr Features Banner"
             className="w-full max-w-sm mx-auto h-auto rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105 object-cover"
           />
-        </div>
+        </button>
       </section>
     </Layout1>
   );
