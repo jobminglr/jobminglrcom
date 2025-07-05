@@ -1,1 +1,1 @@
-Code commit -> Go to WC2 and do git pull
+Code commit then -> Go to EC2 and do git pull
