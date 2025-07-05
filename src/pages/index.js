@@ -208,7 +208,7 @@ const HomePage = () => {
         className="fixed bottom-4 right-4"
       >
         <StaticImage
-          src="../images/qr-placeholder.png"
+          src="../images/qr.png"
           alt="Download JobMinglr App"
           className="w-24 h-24 shadow-lg rounded"
         />
