@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
-import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -96,7 +95,7 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
           <div className="relative">
             <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight mb-6 text-white drop-shadow-lg" data-aos="fade-up">
-              Swipe. Connect. Get Hired.
+              Swipe. Connect. Hired.
             </h1>
             <p className="text-lg sm:text-xl mb-8" data-aos="fade-up" data-aos-delay="200">
               Your next career move is just a swipe away.
@@ -207,9 +206,9 @@ const HomePage = () => {
                 </div>
               ))}
             </div>
-            <Link to="/features" className="mt-10 inline-block text-brandGreen hover:underline">
+            {/* <Link to="/features" className="mt-10 inline-block text-brandGreen hover:underline">
               See all features &raquo;
-            </Link>
+            </Link> */}
           </div>
         </section>
 
