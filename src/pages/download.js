@@ -3,37 +3,24 @@ import * as React from "react";
 import Layout1 from "../components/Layout1";
 import bannerImg from "../images/qr.png";
 import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 const DownloadPage = () => {
 
-  const getAppLink = () => {
-    try {
-      if (typeof window !== "undefined") {
-        const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const isAndroidDevice = /Android/i.test(navigator.userAgent);
-        console.log("navigator.userAgent", navigator.userAgent);
-
-        if (isAppleDevice) {
-          console.log("APPLE DEVICE");
-          return "https://apps.apple.com/us/app/jobminglr/id6738838504";
-        } else if (isAndroidDevice) {
-          console.log("ANDROID DEVICE");
-          return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
-        } else {
-          console.log("OTHER DEVICE");
-          return "https://apps.apple.com/us/app/jobminglr/id6738838504";
-        }
-      }
-    } catch (e) {
-      return "https://apps.apple.com/us/app/jobminglr/id6738838504";
-    }
-  };
-
-  const appLink = getAppLink();
+  const [appLink, setAppLink] = React.useState("https://apps.apple.com/us/app/jobminglr/id6738838504");
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    const detectDevice = () => {
+      if (typeof window !== "undefined") {
+        const ua = navigator.userAgent;
+        if (/iPhone|iPad|iPod/i.test(ua)) {
+          return "https://apps.apple.com/us/app/jobminglr/id6738838504";
+        } else if (/Android/i.test(ua)) {
+          return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
+        }
+      }
+      return "https://apps.apple.com/us/app/jobminglr/id6738838504";
+    };
+
+    setAppLink(detectDevice());
   }, []);
 
   return (

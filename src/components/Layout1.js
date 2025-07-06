@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header1";
 import Footer from "./Footer";
 import { StaticImage } from 'gatsby-plugin-image'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Layout1 = ({ children }) => {
   const [appLink, setAppLink] = useState('');
 
   useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
     const getAppLink = () => {
       try {
         if (typeof window !== 'undefined') {
@@ -26,9 +29,8 @@ const Layout1 = ({ children }) => {
       }
     };
 
-    // Set appLink only after component mounts
     setAppLink(getAppLink());
-  }, []); // Empty dependency array means this runs only once after initial render
+  }, []);
 
   return (
     <>
