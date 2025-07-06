@@ -67,12 +67,12 @@ const FeaturesPage = () => {
         description="Discover JobMinglr's features: swipe-based job matching, AI recommendations, in-app chat, mobile optimization, personalized job alerts, and more."
       />
 
-      <section className="container mx-auto py-16 px-6">
-        <h1 className="text-4xl font-bold mb-8" data-aos="fade-up">
-          JobMinglr Features
+      <section className="container mx-auto py-20 px-6 text-center">
+        <h1 className="text-4xl font-extrabold mb-6 text-brandGreen" data-aos="fade-up">
+          ✨ JobMinglr Features
         </h1>
-        <p className="text-gray-700 mb-12 text-lg" data-aos="fade-up" data-aos-delay="100">
-          JobMinglr offers a range of features designed to make hiring and job seeking more efficient and enjoyable. Here’s a closer look at what you can do on our platform:
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+          JobMinglr offers a range of features designed to make hiring and job seeking more efficient and enjoyable.
         </p>
 
         {/* Add Image */}
@@ -88,18 +88,20 @@ const FeaturesPage = () => {
           />
         </div>
 
-        <ul className="space-y-8">
-          {features.map((feature, index) => (
-            <li
-              key={feature.title}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <h2 className="text-2xl font-semibold">{feature.title}</h2>
-              <p className="text-gray-600 ml-4">{feature.description}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="max-w-4xl mx-auto text-left mt-12">
+          <ul className="space-y-8">
+            {features.map((feature, index) => (
+              <li
+                key={feature.title}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <h2 className="text-2xl font-semibold">{feature.title}</h2>
+                <p className="text-gray-600">{feature.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </Layout1>
   );
