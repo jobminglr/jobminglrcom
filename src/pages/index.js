@@ -120,7 +120,7 @@ const HomePage = () => {
             </a>
           </div>
           <button
-            className="block text-3xl mt-12 animate-bounce cursor-pointer"
+            className="block text-3xl mt-12 animate-bounce cursor-pointer mx-auto"
             onClick={() => scrollToSection("jobMinglrForSection")}
           >
             ⌄
@@ -130,17 +130,36 @@ const HomePage = () => {
 
       <section id="jobMinglrForSection" className="container mx-auto py-16 px-6 text-center">
         <h2 className="text-3xl font-bold mb-12">Who is JobMinglr for?</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          {["Job Seekers", "Recruiters", "Companies"].map((audience) => (
-            <div key={audience}>
-              <h3 className="text-2xl font-semibold mb-3">{audience}</h3>
-              <p className="text-gray-700">
-                {audience === "Job Seekers"
-                  ? "Swipe through personalized job openings. AI-driven recommendations and instant notifications."
-                  : audience === "Recruiters"
-                    ? "Quickly connect with top talent. Swipe profiles and chat instantly."
-                    : "Streamline your hiring process with our swipe-to-hire platform. Find candidates faster."}
-              </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-stretch">
+          {[
+            {
+              title: "Job Seekers",
+              points: [
+                "Instantly build your profile with your resume",
+                "Match score only shows jobs you likely to get",
+                "Swipe Right. You applied.",
+              ],
+            },
+            {
+              title: "Job Recruiters",
+              points: [
+                "Quality candidates",
+                "In-App chat",
+                "Application directly to your dashboard",
+                "Integrated with Greenhouse",
+              ],
+            },
+          ].map(({ title, points }) => (
+            <div
+              key={title}
+              className="bg-gray-100 p-6 rounded-lg shadow hover:shadow-md transition text-center w-full h-full flex flex-col justify-start"
+            >
+              <h3 className="text-2xl font-semibold mb-3 text-brandGreen">{title}</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                {points.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
