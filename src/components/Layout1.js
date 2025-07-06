@@ -18,11 +18,11 @@ const Layout1 = ({ children }) => {
           } else if (isAndroidDevice) {
             return "https://play.google.com/store/apps/details?id=com.jobminglr.in.android&utm_source=na_Med";
           } else {
-            return "https://www.jobminglr.app/";
+            return "https://apps.apple.com/us/app/jobminglr/id6738838504";
           }
         }
       } catch (e) {
-        return "https://www.jobminglr.app/";
+        return "https://apps.apple.com/us/app/jobminglr/id6738838504";
       }
     };
 
