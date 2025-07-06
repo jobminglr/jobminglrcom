@@ -2,7 +2,9 @@
 import * as React from "react";
 import Layout1 from "../components/Layout1";
 import bannerImg from "../images/qr.png";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const DownloadPage = () => {
 
   const getAppLink = () => {
@@ -30,23 +32,30 @@ const DownloadPage = () => {
 
   const appLink = getAppLink();
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <Layout1>
-      <section className="container mx-auto py-16 px-6">
-        <h1 className="text-4xl font-bold mb-8">JobMinglr: Scan QR to Download</h1>
-        <p className="text-gray-700 mb-12 text-lg">
-          JobMinglr offers a range of features designed to make hiring and job seeking more efficient and enjoyable. Here’s a closer look at what you can do on our platform:
-        </p>
+      <section className="container mx-auto py-20 px-6 text-center">
+        <h1 className="text-4xl font-extrabold mb-6 text-brandGreen" data-aos="fade-up">📲 Download JobMinglr</h1>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
+          The easiest way to find jobs or hire talent. Use the QR code below or tap the button to install JobMinglr on your phone.        </p>
 
-        <button className="mb-12 rounded-2xl transform transition-transform duration-500 hover:scale-110 object-cover" onClick={() => {
-          window.open(appLink, '_blank');
-        }}>
+        <div className="flex flex-col items-center justify-center gap-6" data-aos="zoom-in" data-aos-delay="400">
           <img
             src={bannerImg}
-            alt="JobMinglr Features Banner"
-            className="w-full max-w-sm mx-auto h-auto rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-105 object-cover"
+            alt="Download JobMinglr QR"
+            className="w-48 h-48 rounded-xl shadow-lg hover:scale-105 transition-transform duration-500"
           />
-        </button>
+          <button
+            className="bg-brandGreen text-white px-6 py-3 rounded-full hover:bg-brandGreen-dark transition"
+            onClick={() => window.open(appLink, '_blank')}
+          >
+            Open in App Store / Play Store
+          </button>
+        </div>
       </section>
     </Layout1>
   );
