@@ -56,21 +56,21 @@ const Header = () => {
           <Link to="/" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Home
           </Link>
-          <Link to="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
+          {/* <Link to="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             About
           </Link>
           <Link to="/features" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Features
           </Link>
-          {/* <Link to="/blog" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
+          <Link to="/blog" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Blog
           </Link>
           <Link to="/testimonials" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Testimonials
-          </Link> */}
+          </Link> 
           <Link to="/pricing" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Pricing
-          </Link>
+          </Link> */}
           <Link to="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Contact
           </Link>

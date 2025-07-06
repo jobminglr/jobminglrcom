@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HomePage = () => {
   const [showToast, setShowToast] = useState(false);
@@ -47,6 +48,8 @@ const HomePage = () => {
   };
 
   useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+
     const getAppLink = () => {
       try {
         if (typeof window !== 'undefined') {
@@ -92,32 +95,34 @@ const HomePage = () => {
         className="bg-brandGreen text-white text-center py-20 px-4 relative bg-cover bg-center"
         style={{ backgroundImage: `url(${imageUrl})` }}
       >
-        <div className="absolute inset-0 bg-brandGreen opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
         <div className="relative">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-brandAccent"
-            style={{
-              textShadow: '.5px .5px 0px black, -.5px -.5px 0px black, .5px -.5px 0px black, -.5px .5px 0px black'
-            }}>
-            Swipe. Connect. Hired.
+          <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight mb-6 text-white drop-shadow-lg" data-aos="fade-up">
+            Swipe. Connect. Get Hired.
           </h1>
-          <p className="text-lg sm:text-xl mb-8">
+          <p className="text-lg sm:text-xl mb-8" data-aos="fade-up" data-aos-delay="200">
             Your next career move is just a swipe away.
           </p>
-          <div className="flex justify-center flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
+          <div className="flex justify-center flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0" data-aos="fade-up" data-aos-delay="400">
             {/* <a
               href="/features"
               className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
             >
               Learn How It Works
             </a> */}
-            <a
-              href={appLink}
-              target="_blank"
-              rel="noopener noreferrer"  // Added security
-              className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
-            >
-              Download JobMinglr
-            </a>
+            <div className="flex flex-col items-center">
+              <span className="inline-block mb-4 px-3 py-1 bg-white text-brandGreen text-sm font-semibold rounded-full shadow">
+                🚀 Launching in Austin, TX
+              </span>
+              <a
+                href={appLink}
+                target="_blank"
+                rel="noopener noreferrer"  // Added security
+                className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
+              >
+                Download JobMinglr
+              </a>
+            </div>
           </div>
           <button
             className="block text-3xl mt-12 animate-bounce cursor-pointer mx-auto"
@@ -125,6 +130,22 @@ const HomePage = () => {
           >
             ⌄
           </button>
+        </div>
+      </section>
+
+      <section className="bg-black text-white py-16 px-6">
+        <div className="container mx-auto text-center max-w-4xl">
+          <h2 className="text-3xl font-bold mb-6" data-aos="fade-up">Watch JobMinglr in Action</h2>
+          <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="JobMinglr Demo"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       </section>
 
@@ -149,10 +170,12 @@ const HomePage = () => {
                 "Integrated with Greenhouse",
               ],
             },
-          ].map(({ title, points }) => (
+          ].map(({ title, points }, idx) => (
             <div
               key={title}
               className="bg-gray-100 p-6 rounded-lg shadow hover:shadow-md transition text-center w-full h-full flex flex-col justify-start"
+              data-aos="fade-up"
+              data-aos-delay={`${idx * 200}`}
             >
               <h3 className="text-2xl font-semibold mb-3 text-brandGreen">{title}</h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
@@ -169,14 +192,22 @@ const HomePage = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Why JobMinglr?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {["Swipe Matching", "AI Suggestions", "In-App Chat", "Mobile Optimized"].map((feature) => (
-              <div key={feature} className="bg-white p-4 rounded-lg shadow transition hover:shadow-lg">
-                <h3 className="font-semibold">{feature}</h3>
+            {["Swipe Matching", "Match Score Suggestions", "In-App Chat", "Mobile Optimized"].map((feature, idx) => (
+              <div key={feature} className="bg-white p-4 rounded-lg shadow transition hover:shadow-lg" data-aos="zoom-in" data-aos-delay={`${idx * 200}`}>
+                <h3 className="font-semibold text-xl">
+                  {feature === "Swipe Matching"
+                    ? "🔄 Swipe Matching"
+                    : feature === "Match Score Suggestions"
+                      ? "🤖 Match Score Suggestions"
+                      : feature === "In-App Chat"
+                        ? "💬 In-App Chat"
+                        : "📱 Mobile Optimized"}
+                </h3>
                 <p className="text-gray-600 text-sm mt-2">
                   {feature === "Swipe Matching"
                     ? "Fast, intuitive swipe-based browsing."
-                    : feature === "AI Suggestions"
-                      ? "Personalized AI-driven recommendations."
+                    : feature === "Match Score Suggestions"
+                      ? "Personalized Match Score-driven recommendations."
                       : feature === "In-App Chat"
                         ? "Instant messaging built right into the platform."
                         : "Fully optimized mobile experience."}
@@ -187,6 +218,22 @@ const HomePage = () => {
           <Link to="/features" className="mt-10 inline-block text-brandGreen hover:underline">
             See all features &raquo;
           </Link>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 px-6">
+        <div className="container mx-auto text-center max-w-3xl">
+          <h2 className="text-3xl font-bold mb-8">What our users say</h2>
+          <div className="space-y-8">
+            <blockquote className="text-lg italic text-gray-800" data-aos="fade-left">
+              “I landed my dream job within a week. The swipe feature is genius!”
+              <footer className="mt-2 text-sm text-gray-500">– Abhay S., Software Engineer</footer>
+            </blockquote>
+            <blockquote className="text-lg italic text-gray-800" data-aos="fade-left">
+              “Saves hours of filtering resumes. A must-have for recruiters.”
+              <footer className="mt-2 text-sm text-gray-500">– William R., Hiring Manager</footer>
+            </blockquote>
+          </div>
         </div>
       </section>
 
@@ -220,7 +267,7 @@ const HomePage = () => {
         )}
       </section>
 
-      <button
+      {/* <button
         href={appLink}
         target="_blank"
         rel="noopener noreferrer"
@@ -231,7 +278,7 @@ const HomePage = () => {
           alt="Download JobMinglr App"
           className="w-24 h-24 shadow-lg rounded"
         />
-      </button>
+      </button> */}
     </Layout1>
   );
 };

@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.0",
     "font-awesome": "^4.7.0",
     "gatsby": "^5.14.5",
