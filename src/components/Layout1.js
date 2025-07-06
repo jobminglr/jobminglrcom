@@ -36,18 +36,17 @@ const Layout1 = ({ children }) => {
       <main className="pt-16">
         {children}
       </main>
-      <div className="fixed bottom-4 right-4 z-50">
+      <div className="fixed bottom-4 right-4 max-w-[90vw] overflow-hidden z-50">
         <a
           href={appLink}
           target="_blank"
           rel="noopener noreferrer"
+          className="block"
         >
           <StaticImage
             src="../images/qr.png"
             alt="Download JobMinglr App"
-            placeholder="blurred"
-            layout="constrained"
-            className="w-20 h-20 shadow-lg border rounded-lg"
+            className="w-20 h-20 shadow-lg rounded"
           />
         </a>
       </div>

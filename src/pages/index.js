@@ -14,15 +14,13 @@ const HomePage = () => {
   const handleSubscribe = async (e) => {
     e.preventDefault();
 
-    // Prepare the data to send
     const data = {
-      name: "Subscriber", // Static name as per your example
+      name: "Subscriber",
       email: email,
       message: "Subscribe",
     };
 
     try {
-      // Call the API using fetch
       const response = await fetch("https://it96ohh4nc.execute-api.us-east-1.amazonaws.com/send-email", {
         method: "POST",
         headers: {
@@ -33,8 +31,8 @@ const HomePage = () => {
 
       if (response.ok) {
         setShowToast(true);
-        setTimeout(() => setShowToast(false), 4000); // Hide toast after 4 seconds
-        setEmail(""); // Reset the email field
+        setTimeout(() => setShowToast(false), 4000);
+        setEmail("");
       } else {
         console.error("Failed to send subscription");
       }
@@ -69,9 +67,8 @@ const HomePage = () => {
       }
     };
 
-    // Set appLink only after component mounts
     setAppLink(getAppLink());
-  }, []); // Empty dependency array means this runs only once after initial render
+  }, []);
 
 
   const data = useStaticQuery(graphql`
@@ -105,12 +102,6 @@ const HomePage = () => {
               Your next career move is just a swipe away.
             </p>
             <div className="flex justify-center flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0" data-aos="fade-up" data-aos-delay="400">
-              {/* <a
-              href="/features"
-              className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
-            >
-              Learn How It Works
-            </a> */}
               <div className="flex flex-col items-center">
                 <span className="inline-block mb-4 px-3 py-1 bg-white text-brandGreen text-sm font-semibold rounded-full shadow">
                   🚀 Launching in Austin, TX
@@ -118,7 +109,7 @@ const HomePage = () => {
                 <a
                   href={appLink}
                   target="_blank"
-                  rel="noopener noreferrer"  // Added security
+                  rel="noopener noreferrer"
                   className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
                 >
                   Download JobMinglr
@@ -238,7 +229,6 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Newsletter Signup */}
         <section className="container mx-auto text-center py-16 px-6">
           <h2 className="text-2xl font-bold mb-4">Stay in the loop</h2>
           <p className="mb-6 text-gray-700">
@@ -267,19 +257,6 @@ const HomePage = () => {
             </div>
           )}
         </section>
-
-        {/* <button
-        href={appLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 right-4"
-      >
-        <StaticImage
-          src="../images/qr.png"
-          alt="Download JobMinglr App"
-          className="w-24 h-24 shadow-lg rounded"
-        />
-      </button> */}
       </Layout1>
     </div>
   );
