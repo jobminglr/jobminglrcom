@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
 import { graphql, useStaticQuery } from "gatsby";
@@ -9,8 +9,51 @@ const HomePage = () => {
   const [showToast, setShowToast] = useState(false);
   const [email, setEmail] = useState("");
   const [appLink, setAppLink] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const videoRef = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10; // -5deg .. 5deg
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -10; // -5deg .. 5deg
+    setTilt({ x, y });
+  };
+
+  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  };
+
+  const enterPiP = async () => {
+    try {
+      if (
+        typeof document !== 'undefined' &&
+        videoRef.current &&
+        'pictureInPictureEnabled' in document
+      ) {
+        if (document.pictureInPictureElement) {
+          await document.exitPictureInPicture();
+        } else {
+          await videoRef.current.requestPictureInPicture();
+        }
+      }
+    } catch (err) {
+      console.error('PiP error', err);
+    }
+  };
 
   const handleSubscribe = async (e) => {
+
     e.preventDefault();
 
     const data = {
@@ -89,7 +132,7 @@ const HomePage = () => {
         />
 
         <section
-          className="bg-brandGreen text-white text-center py-20 px-4 relative bg-cover bg-center"
+          className="bg-brandGreen text-white text-center relative bg-cover bg-center min-h-screen flex items-center justify-center px-4"
           style={{ backgroundImage: `url(${imageUrl})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
@@ -124,20 +167,107 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section className="bg-black text-white py-16 px-6">
-          <div className="container mx-auto text-center max-w-4xl">
-            <h2 className="text-3xl font-bold mb-6" data-aos="fade-up">Watch JobMinglr in Action</h2>
-            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="JobMinglr Demo"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+        {/* Demo video — interactive 3D card with PiP and modal */}
+        <section className="relative py-20 px-6 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
+          {/* background accents */}
+          <div className="pointer-events-none absolute inset-0 opacity-40">
+            <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-brandGreen blur-3xl animate-pulse" />
+            <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-emerald-700 blur-3xl animate-pulse" />
+          </div>
+
+          <div className="container mx-auto max-w-6xl relative">
+            <div className="text-center mb-10">
+              <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-white/10 ring-1 ring-white/20">Product demo</span>
+              <h2 className="text-3xl sm:text-4xl font-bold mt-4">See JobMinglr in action</h2>
+              <p className="text-gray-300 mt-2">A quick peek at swipe, match score, and chat—right inside the app.</p>
+            </div>
+
+            {/* perspective wrapper */}
+            <div className="mx-auto max-w-3xl" style={{ perspective: '1000px' }}>
+              <div
+                className="relative rounded-3xl shadow-2xl ring-1 ring-white/10 bg-white/5 backdrop-blur overflow-hidden transition-transform duration-200 will-change-transform"
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                style={{ transform: `rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)` }}
+              >
+                {/* subtle gradient edge */}
+                <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20" />
+
+                <video
+                  ref={videoRef}
+                  className="block w-full h-full aspect-video object-cover"
+                  controls
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  poster="/video-poster.jpg"
+                >
+                  <source src="https://jobminglr-website.s3.us-east-1.amazonaws.com/jobminglr+website+video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {/* floating controls */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={togglePlay}
+                    aria-label="Play or pause demo"
+                    className="px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-105 transition"
+                  >
+                    Play/Pause
+                  </button>
+                  <button
+                    type="button"
+                    onClick={enterPiP}
+                    aria-label="Toggle Picture in Picture"
+                    className="px-4 py-2 rounded-full bg-black/70 text-white text-sm font-semibold ring-1 ring-white/30 hover:bg-black/80 transition"
+                  >
+                    PiP
+                  </button>
+                  <button
+                    type="button"
+                    onClick={openModal}
+                    aria-label="Open full-screen demo"
+                    className="px-4 py-2 rounded-full bg-brandGreen text-white text-sm font-semibold hover:scale-105 transition"
+                  >
+                    Watch full demo
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* modal overlay */}
+          {isModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true">
+              <div className="relative w-full max-w-5xl">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  aria-label="Close demo"
+                  className="absolute -top-10 right-0 text-white/80 hover:text-white"
+                >
+                  ✕ Close
+                </button>
+                <div className="rounded-2xl overflow-hidden ring-1 ring-white/20 bg-black">
+                  <video
+                    className="w-full h-full aspect-video object-contain bg-black"
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster="/video-poster.jpg"
+                  >
+                    <source src="https://jobminglr-website.s3.us-east-1.amazonaws.com/jobminglr+website+video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
         <section id="jobMinglrForSection" className="container mx-auto py-16 px-6 text-center">
