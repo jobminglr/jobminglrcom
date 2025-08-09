@@ -112,19 +112,40 @@ const HomePage = () => {
     setAppLink(getAppLink());
   }, []);
 
+  useEffect(() => {
+    const aosAnimation = document.querySelectorAll("[data-aos]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("aos-animate");
+          } else {
+            entry.target.classList.remove("aos-animate");
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+    aosAnimation.forEach((aosObject) => {
+      observer.observe(aosObject);
+    });
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "JobApplication.jpg" }) {
-        publicURL
+      query {
+        file(relativePath: { eq: "JobApplication.jpg" }) {
+          publicURL
+        }
       }
-    }
-  `);
+    `);
 
   const imageUrl = data.file.publicURL;
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden h-screen overflow-y-scroll snap-y scroll-smooth">
       <Layout1>
         <SEO1
           title="Home"
@@ -132,7 +153,7 @@ const HomePage = () => {
         />
 
         <section
-          className="bg-brandGreen text-white text-center relative bg-cover bg-center min-h-screen flex items-center justify-center px-4"
+          className="bg-brandGreen text-white text-center relative bg-cover bg-center min-h-screen flex items-center justify-center px-4 snap-start"
           style={{ backgroundImage: `url(${imageUrl})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
@@ -168,7 +189,7 @@ const HomePage = () => {
         </section>
 
         {/* Demo video — interactive 3D card with PiP and modal */}
-        <section className="relative py-20 px-6 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
+        <section className="relative py-20 px-6 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden min-h-screen snap-start">
           {/* background accents */}
           <div className="pointer-events-none absolute inset-0 opacity-40">
             <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-brandGreen blur-3xl animate-pulse" />
@@ -270,7 +291,7 @@ const HomePage = () => {
           )}
         </section>
 
-        <section id="jobMinglrForSection" className="container mx-auto py-16 px-6 text-center">
+        <section id="jobMinglrForSection" className="container mx-auto py-16 px-6 text-center snap-start">
           <h2 className="text-3xl font-bold mb-12">Who is JobMinglr for?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-stretch">
             {[
@@ -337,12 +358,12 @@ const HomePage = () => {
               ))}
             </div>
             {/* <Link to="/features" className="mt-10 inline-block text-brandGreen hover:underline">
-              See all features &raquo;
-            </Link> */}
+                See all features &raquo;
+              </Link> */}
           </div>
         </section>
 
-        <section className="bg-white py-16 px-6">
+        <section className="bg-white py-16 px-6 snap-start">
           <div className="container mx-auto text-center max-w-3xl">
             <h2 className="text-3xl font-bold mb-8">What our users say</h2>
             <div className="space-y-8">
