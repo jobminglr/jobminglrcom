@@ -369,7 +369,7 @@ const HomePage = () => {
             <div className="space-y-8">
               <blockquote className="text-lg italic text-gray-800" data-aos="fade-left">
                 “I landed my dream job within a week. The swipe feature is genius!”
-                <footer className="mt-2 text-sm text-gray-500">– Abhay S., Software Engineer</footer>
+                <footer className="mt-2 text-sm text-gray-500">– Aditya S., Chief Operations Manager</footer>
               </blockquote>
               <blockquote className="text-lg italic text-gray-800" data-aos="fade-left">
                 “Saves hours of filtering resumes. A must-have for recruiters.”
