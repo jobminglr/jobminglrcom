@@ -41,6 +41,9 @@ const Header = () => {
           <Link to="/pricing" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             Pricing
           </Link>*/}
+          <Link to="/pinpoint" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
+            Pinpoint Integration
+          </Link>
           <Link to="/contact" activeClassName="font-semibold text-brandGreen-dark" className="text-gray-700 hover:text-brandGreen-dark">
             Contact
           </Link>
@@ -71,6 +74,9 @@ const Header = () => {
           <Link to="/pricing" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Pricing
           </Link> */}
+          <Link to="/pinpoint" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
+            Pinpoint Integration
+          </Link>
           <Link to="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
             Contact
           </Link>
