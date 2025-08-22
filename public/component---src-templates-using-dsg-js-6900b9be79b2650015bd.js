@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[385],{1347:function(e,t,a){a.r(t),a.d(t,{Head:function(){return s}});var n=a(6540),r=a(2484);const s=()=>n.createElement(r.A,{title:"Using DSG"});t.default=()=>n.createElement("div",null,"Hi")}}]);
+//# sourceMappingURL=component---src-templates-using-dsg-js-6900b9be79b2650015bd.js.map
