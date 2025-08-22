@@ -13,7 +13,7 @@ const PinPointPage = () => {
       />
       <section className="container mx-auto py-20 px-6 text-center">
         <h1 className="text-4xl font-extrabold mb-6 text-brandGreen" data-aos="fade-up">JobMinglr &amp; Pinpoint ATS Integration</h1>
-        <p className="mt-4 text-xl text-gray-700">Swipe. Connect. Hired.</p>
+        <p className="mt-4 text-xl text-gray-700" data-aos="fade-up">Swipe. Connect. Hired.</p>
         <div className="max-w-3xl mx-auto mt-10 mb-16 text-left text-gray-700 space-y-6" data-aos="fade-up" data-aos-delay="250">
           <p>Hiring shouldn’t mean sorting through hundreds of unqualified resumes. With JobMinglr and Pinpoint, you put your open roles in front of the right people — automatically. Our swipe-to-match platform surfaces only high-fit, match-scored candidates, and every application flows directly into Pinpoint with an ATS-ready resume.</p>
           <p>The result? Faster screening, better candidate quality, and a seamless recruiter workflow.</p>
