@@ -12,71 +12,65 @@ const PinPointPage = () => {
         description="Pinpoint Integration X JobMinglr"
       />
       <section className="container mx-auto py-20 px-6 text-center">
-        <div className="max-w-xl mx-auto mt-20 mb-16 text-left text-gray-700" data-aos="fade-up" data-aos-delay="250">
-          <h2 className="text-3xl font-extrabold mb-2 text-brandGreen">JobMinglr × Pinpoint Integration</h2>
-          <p className="mb-6 text-lg text-gray-600">Seamlessly connect JobMinglr with your Pinpoint ATS to streamline candidate sourcing and workflow.</p>
+        <h1 className="text-4xl font-extrabold mb-6 text-brandGreen" data-aos="fade-up">JobMinglr &amp; Pinpoint ATS Integration</h1>
+        <p className="mt-4 text-xl text-gray-700">Swipe. Connect. Hired.</p>
+        <div className="max-w-3xl mx-auto mt-10 mb-16 text-left text-gray-700 space-y-6" data-aos="fade-up" data-aos-delay="250">
+          <p>Hiring shouldn’t mean sorting through hundreds of unqualified resumes. With JobMinglr and Pinpoint, you put your open roles in front of the right people — automatically. Our swipe-to-match platform surfaces only high-fit, match-scored candidates, and every application flows directly into Pinpoint with an ATS-ready resume.</p>
+          <p>The result? Faster screening, better candidate quality, and a seamless recruiter workflow.</p>
 
-          <h3 className="text-xl font-semibold mb-2 text-brandGreen">What the integration does</h3>
-          <ul className="list-disc pl-6 mb-6 space-y-1">
-            <li>Automatically syncs sourced candidates from JobMinglr to your Pinpoint jobs</li>
-            <li>Keeps candidate status up-to-date across both platforms</li>
-            <li>Enables one-click candidate push from JobMinglr to Pinpoint</li>
-            <li>Reduces manual data entry and errors</li>
-          </ul>
-
-          <h3 className="text-xl font-semibold mb-2 text-brandGreen">How it works</h3>
-          <ol className="list-decimal pl-6 mb-6 space-y-1">
-            <li>Connect your Pinpoint account to JobMinglr with a secure API key.</li>
-            <li>Select which jobs you want to sync candidates to.</li>
-            <li>Sourced candidates in JobMinglr are instantly available in Pinpoint.</li>
-            <li>Candidate updates and notes can flow between the two systems.</li>
+          <h2 className="text-2xl font-bold text-brandGreen">How does Pinpoint and JobMinglr integration work?</h2>
+          <ol className="list-decimal pl-6 space-y-2">
+            <li><strong>Automatic job syncing</strong><br />JobMinglr connects directly with Pinpoint to pull in your active roles. We check your dashboard daily, so any new postings or updates are reflected in JobMinglr automatically — no extra steps for your team.</li>
+            <li><strong>Intelligent candidate matching</strong><br />Not everyone gets to apply. JobMinglr’s proprietary algorithm analyzes skills, titles, and role requirements, then scores every candidate. Only those who meet your criteria and reach a high match score can swipe right and apply.</li>
+            <li><strong>Seamless application delivery</strong><br />When a candidate applies, their profile and a fully standardized, ATS-optimized resume are delivered straight back into Pinpoint. Your team sees applicants instantly and can review them just like any other candidate.</li>
+            <li><strong>A streamlined recruiter experience</strong><br />No extra logins. No manual exports. No clunky tools. The integration keeps everything inside Pinpoint, so your hiring process stays consistent while your talent pool gets stronger.</li>
           </ol>
 
-          <h3 className="text-xl font-semibold mb-2 text-brandGreen">Getting started</h3>
-          <p className="mb-6">
-            Ready to activate the integration? Simply submit a request below and our team will help you connect your Pinpoint and JobMinglr accounts.
-          </p>
+          <h2 className="text-2xl font-bold text-brandGreen">How to connect Pinpoint and JobMinglr</h2>
+          <p>Getting started is simple and takes only a few minutes:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Provide your Pinpoint API key. This is the only setup step — no complex configuration.</li>
+            <li>Sync begins automatically. Once connected, all of your active jobs flow into JobMinglr and refresh daily.</li>
+            <li>Start receiving candidates. As soon as job seekers swipe and apply, their applications appear in your Pinpoint dashboard in real time.</li>
+          </ul>
+          <p>Our team is available to assist during setup and to answer any technical questions. Most customers are live with the integration the same day they connect.</p>
 
-          <h3 className="text-xl font-semibold mb-2 text-brandGreen">FAQs</h3>
-          <div className="mb-6">
-            <div className="mb-3">
-              <p className="font-semibold">Q: Is this integration secure?</p>
-              <p className="ml-2 text-gray-600">A: Yes, all data is transferred securely using encrypted connections. Your API keys are never shared.</p>
-            </div>
-            <div className="mb-3">
-              <p className="font-semibold">Q: Will existing candidates in Pinpoint be affected?</p>
-              <p className="ml-2 text-gray-600">A: No, the integration only adds new candidates sourced from JobMinglr to your selected Pinpoint jobs.</p>
-            </div>
-            <div className="mb-3">
-              <p className="font-semibold">Q: Can I choose which jobs to sync?</p>
-              <p className="ml-2 text-gray-600">A: Absolutely! You control which jobs receive candidates from JobMinglr.</p>
+          <h2 className="text-2xl font-bold text-brandGreen">FAQs</h2>
+          <div className="space-y-4">
+            <div>
+              <p className="font-semibold">Do you change my job postings?</p>
+              <p className="ml-2 text-gray-600">No. Job details always come directly from Pinpoint — including job titles, descriptions, and links.</p>
             </div>
             <div>
-              <p className="font-semibold">Q: How do I disconnect the integration?</p>
-              <p className="ml-2 text-gray-600">A: You can disconnect anytime from your JobMinglr account settings, or contact our team for assistance.</p>
+              <p className="font-semibold">Can anyone apply?</p>
+              <p className="ml-2 text-gray-600">No. JobMinglr only allows candidates who match your role and reach a high compatibility score to apply. This ensures you only see quality applicants.</p>
+            </div>
+            <div>
+              <p className="font-semibold">What comes back into Pinpoint?</p>
+              <p className="ml-2 text-gray-600">Every application includes the candidate’s profile plus a standardized, ATS-optimized resume. This format makes reviewing faster and keeps all applications consistent.</p>
+            </div>
+            <div>
+              <p className="font-semibold">Can I choose what jobs to sync?</p>
+              <p className="ml-2 text-gray-600">JobMinglr automatically syncs your Pinpoint jobs once per day. All active jobs are updated, and any edits you make in Pinpoint are reflected in JobMinglr automatically. There’s no manual sync process required.</p>
+            </div>
+            <div>
+              <p className="font-semibold">How do I disconnect the integration?</p>
+              <p className="ml-2 text-gray-600">You can disconnect anytime by removing your API key from the integration settings. Once removed, JobMinglr will stop syncing jobs and sending applications.</p>
             </div>
           </div>
 
-          <div className="mb-6 justify-center text-center" data-aos-delay="300">
+          <h2 className="text-2xl font-bold text-brandGreen">Connect now</h2>
+          <p>Ready to supercharge your hiring pipeline? Connect Pinpoint with JobMinglr today and start receiving high-quality, match-scored candidates in your ATS.</p>
+          <div className="text-center">
             <button onClick={() => navigate("/contact")}
-              className="bg-brandGreen text-white px-6 py-3 rounded-full font-semibold hover:bg-brandGreen-dark transition justify-center">
+              className="bg-brandGreen text-white px-6 py-3 rounded-full font-semibold hover:bg-brandGreen-dark transition">
               Submit Integration Request &rarr;
             </button>
           </div>
-          <div>
-            <span className="text-gray-700">Questions? Contact our partner team at </span>
-            <a href="mailto:partners@jobminglr.com" className="text-brandGreen hover:underline">partners@jobminglr.com</a>
-          </div>
-        </div>
 
-        <div className="text-gray-800 mt-16 space-y-2 max-w-xl mx-auto text-sm sm:text-base" data-aos="fade-up" data-aos-delay="300">
-          <h2 className="text-xl font-semibold mt-10">📍 JobMinglr HQ</h2>
-          <p>701 Brazos Street, Austin, TX 78701</p>
-          <p>📞 (512) 240-2349</p>
-          <p>✉️ <a href="mailto:support@jobminglr.com" className="text-brandGreen hover:underline">support@jobminglr.com</a></p>
-          <h3 className="text-lg font-semibold mt-6">🕘 Business Hours</h3>
-          <p>Mon–Fri: 9 AM – 5 PM</p>
-          <p>Sat & Sun: Closed</p>
+          <h2 className="text-2xl font-bold text-brandGreen">Contact us</h2>
+          <p>Have questions or need help with setup? Our partnership team is here to support you.</p>
+          <p>📧 <a href="mailto:partners@jobminglr.com" className="text-brandGreen hover:underline">partners@jobminglr.com</a></p>
         </div>
       </section>
     </Layout1>
