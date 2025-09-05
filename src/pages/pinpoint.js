@@ -3,6 +3,7 @@ import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
 import "aos/dist/aos.css";
 import { navigate } from "gatsby";
+import bannerImg from "../images/pinpointlogo.jpeg";
 
 const PinPointPage = () => {
   return (
@@ -15,10 +16,24 @@ const PinPointPage = () => {
         <h1 className="text-4xl font-extrabold mb-6 text-brandGreen" data-aos="fade-up">JobMinglr &amp; Pinpoint ATS Integration</h1>
         <p className="mt-4 text-xl text-gray-700" data-aos="fade-up">Swipe. Connect. Hired.</p>
         <div className="max-w-3xl mx-auto mt-10 mb-16 text-left text-gray-700 space-y-6" data-aos="fade-up" data-aos-delay="250">
-          <p>Hiring shouldn’t mean sorting through hundreds of unqualified resumes. With JobMinglr and Pinpoint, you put your open roles in front of the right people — automatically. Our swipe-to-match platform surfaces only high-fit, match-scored candidates, and every application flows directly into Pinpoint with an ATS-ready resume.</p>
+          <p>Hiring shouldn’t mean sorting through hundreds of unqualified resumes. With JobMinglr and <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a>, you put your open roles in front of the right people — automatically. Our swipe-to-match platform surfaces only high-fit, match-scored candidates, and every application flows directly into Pinpoint with an ATS-ready resume.</p>
           <p>The result? Faster screening, better candidate quality, and a seamless recruiter workflow.</p>
 
-          <h2 className="text-2xl font-bold text-brandGreen">How does Pinpoint and JobMinglr integration work?</h2>
+          <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer">
+            <div
+              className="mb-8 rounded-xl transform transition-transform duration-500 hover:scale-105 object-cover max-w-xs mx-auto"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <img
+                src={bannerImg}
+                alt="PinpointLogo"
+                className="w-full h-auto rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105 object-cover"
+              />
+            </div>
+          </a>
+
+          <h2 className="text-2xl font-bold text-brandGreen">How does <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> and JobMinglr integration work?</h2>
           <ol className="list-decimal pl-6 space-y-2">
             <li><strong>Automatic job syncing</strong><br />JobMinglr connects directly with Pinpoint to pull in your active roles. We check your dashboard daily, so any new postings or updates are reflected in JobMinglr automatically — no extra steps for your team.</li>
             <li><strong>Intelligent candidate matching</strong><br />Not everyone gets to apply. JobMinglr’s proprietary algorithm analyzes skills, titles, and role requirements, then scores every candidate. Only those who meet your criteria and reach a high match score can swipe right and apply.</li>
@@ -26,10 +41,10 @@ const PinPointPage = () => {
             <li><strong>A streamlined recruiter experience</strong><br />No extra logins. No manual exports. No clunky tools. The integration keeps everything inside Pinpoint, so your hiring process stays consistent while your talent pool gets stronger.</li>
           </ol>
 
-          <h2 className="text-2xl font-bold text-brandGreen">How to connect Pinpoint and JobMinglr</h2>
+          <h2 className="text-2xl font-bold text-brandGreen">How to connect <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> and JobMinglr</h2>
           <p>Getting started is simple and takes only a few minutes:</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li>Provide your Pinpoint API key. This is the only setup step — no complex configuration.</li>
+            <li>Provide your <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> API key. This is the only setup step — no complex configuration.</li>
             <li>Sync begins automatically. Once connected, all of your active jobs flow into JobMinglr and refresh daily.</li>
             <li>Start receiving candidates. As soon as job seekers swipe and apply, their applications appear in your Pinpoint dashboard in real time.</li>
           </ul>
@@ -73,7 +88,7 @@ const PinPointPage = () => {
           <p>📧 <a href="mailto:partners@jobminglr.com" className="text-brandGreen hover:underline">partners@jobminglr.com</a></p>
         </div>
       </section>
-    </Layout1>
+    </Layout1 >
   );
 };
 
