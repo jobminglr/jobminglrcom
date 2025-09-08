@@ -208,8 +208,8 @@ const GreenHouseContactPage = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-end">
-              <div className="sm:col-start-2 sm:col-span-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="sm:col-start-2 sm:col-span-2 flex justify-end">
                 <button
                   type="submit"
                   className="bg-brandGreen text-white px-6 py-3 rounded-full hover:bg-brandGreen-dark transition"

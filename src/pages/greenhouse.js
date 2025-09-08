@@ -91,7 +91,7 @@ const GreenhousePage = () => {
                 </summary>
                 <div className="mt-3 text-sm text-gray-700 space-y-2">
                   <p>Follow the official Greenhouse instructions here:</p>
-                  <p>👉 <span className="font-medium">Greenhouse Support — JobMinglr Integration</span></p>
+                  <p>👉 <span className="font-medium"><a href="https://support.greenhouse.io/hc/en-us/articles/40195031336475-Jobminglr-integration" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Greenhouse Support — JobMinglr Integration</a></span></p>
                 </div>
               </details>
 
@@ -127,7 +127,7 @@ const GreenhousePage = () => {
                   <p>
                     Harvest API Keys can’t be recovered once created. If you lose yours, you’ll need to generate a new one. Please follow the instructions on the Greenhouse integrations page here:
                   </p>
-                  <p>👉 <span className="font-medium">Greenhouse Support — JobMinglr Integration</span></p>
+                  <p>👉 <span className="font-medium"><a href="https://support.greenhouse.io/hc/en-us/articles/40195031336475-Jobminglr-integration" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Greenhouse Support — JobMinglr Integration</a></span></p>
                 </div>
               </details>
 
