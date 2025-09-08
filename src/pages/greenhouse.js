@@ -32,20 +32,22 @@ const GreenhousePage = () => {
           data-aos="fade-up"
           data-aos-delay="250"
         >
-          <p>
-            JobMinglr makes hiring simple by matching quality candidates with the right roles.
-          </p>
+          <div className="space-y-0">
+            <p>
+              JobMinglr makes hiring simple by matching quality candidates with the right roles.
+            </p>
 
-          <p>When combined with Greenhouse, you get a seamless way to manage applications and speed up your hiring process.</p>
+            <p>When combined with Greenhouse, you get a seamless way to manage applications and speed up your hiring process.</p>
 
-          <p>Best of all, setting up the integration only takes a few minutes — and it’s free.
-          </p>
+            <p>Best of all, setting up the integration only takes a few minutes — and it’s free.
+            </p>
 
-          <p>You can find JobMinglr in the <a href="https://integrations.greenhouse.com/" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Greenhouse Marketplace</a>
-          </p>
+            <p>You can find JobMinglr in the <a href="https://integrations.greenhouse.com/" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Greenhouse Marketplace</a>
+            </p>
 
-          <p>For setting up your integration, follow this <a href="https://support.greenhouse.io/hc/en-us/articles/40195031336475-Jobminglr-integration" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Setup Guide</a> provided by Greenhouse.
-          </p>
+            <p>For setting up your integration, follow this <a href="https://support.greenhouse.io/hc/en-us/articles/40195031336475-Jobminglr-integration" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Setup Guide</a> provided by Greenhouse.
+            </p>
+          </div>
 
           <div className="mx-auto max-w-3xl" style={{ perspective: '1000px' }}>
             <div
@@ -62,7 +64,6 @@ const GreenhousePage = () => {
                 controls
                 muted
                 loop
-                autoPlay
                 playsInline
                 preload="metadata"
                 poster="/video-poster.jpg"
@@ -78,7 +79,7 @@ const GreenhousePage = () => {
           </h2>
 
           <GreenHouseContactPage />
-          <h2 className="text-2xl font-bold text-brandGreen">FAQ — Greenhouse + JobMinglr Integration</h2>
+          <h2 className="text-2xl font-bold text-brandGreen">FAQs</h2>
 
           <div className="max-w-xl mx-auto mt-16 text-gray-800" data-aos="fade-up" data-aos-delay="300">
             <div className="mt-4 space-y-3">

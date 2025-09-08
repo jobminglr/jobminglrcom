@@ -66,7 +66,6 @@ const PinPointPage = () => {
                 controls
                 muted
                 loop
-                autoPlay
                 playsInline
                 preload="metadata"
                 poster="/video-poster.jpg"

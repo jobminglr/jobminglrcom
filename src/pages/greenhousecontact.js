@@ -81,8 +81,7 @@ const GreenHouseContactPage = () => {
 
     <section >
       <p className="text-gray-600 max-w-2xl mb-10">
-        Fill out the form below so we can connect your Greenhouse account. Please make sure you have created a Harvest API Key and located your Job Board Link and On-Behalf-Of User ID.
-      </p>
+        Once you have set up your JobMinglr integration within Greenhouse, fill out the form below to finish your integration setup.      </p>
 
       {showToast && (
         <div className="mb-6 rounded-md bg-brandGreen border border-brandGreen px-6 py-4 text-sm text-white shadow-md flex items-start justify-between animate-fade-in-out transition-all duration-300 max-w-xl mx-auto">
@@ -209,7 +208,7 @@ const GreenHouseContactPage = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-end">
               <div className="sm:col-start-2 sm:col-span-2">
                 <button
                   type="submit"
