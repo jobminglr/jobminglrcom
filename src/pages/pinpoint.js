@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
 import "aos/dist/aos.css";
@@ -6,6 +6,16 @@ import { navigate } from "gatsby";
 import bannerImg from "../images/pinpointlogo.jpeg";
 
 const PinPointPage = () => {
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10; // -5deg .. 5deg
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -10; // -5deg .. 5deg
+    setTilt({ x, y });
+  };
+
+  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
   return (
     <Layout1>
       <SEO1
@@ -41,6 +51,32 @@ const PinPointPage = () => {
             <li><strong>A streamlined recruiter experience</strong><br />No extra logins. No manual exports. No clunky tools. The integration keeps everything inside Pinpoint, so your hiring process stays consistent while your talent pool gets stronger.</li>
           </ol>
 
+          <div className="mx-auto max-w-3xl" style={{ perspective: '1000px' }}>
+            <div
+              className="relative rounded-3xl shadow-2xl ring-1 ring-white/10 bg-white/5 backdrop-blur overflow-hidden transition-transform duration-200 will-change-transform"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{ transform: `rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)` }}
+            >
+              {/* subtle gradient edge */}
+              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20" />
+
+              <video
+                className="block w-full h-full aspect-video object-cover"
+                controls
+                muted
+                loop
+                autoPlay
+                playsInline
+                preload="metadata"
+                poster="/video-poster.jpg"
+              >
+                <source src="https://jobminglr-website.s3.us-east-1.amazonaws.com/JobMinglr+%2B+Pinpoint+(1).mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+            </div>
+          </div>
           <h2 className="text-2xl font-bold text-brandGreen">How to connect <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> and JobMinglr</h2>
           <p>Getting started is simple and takes only a few minutes:</p>
           <ul className="list-disc pl-6 space-y-2">
