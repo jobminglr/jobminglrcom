@@ -70,7 +70,7 @@ const PinPointPage = () => {
                 preload="metadata"
                 poster="/video-poster.jpg"
               >
-                <source src="https://jobminglr-website.s3.us-east-1.amazonaws.com/JobMinglr+%2B+Pinpoint+(1).mp4" type="video/mp4" />
+                <source src="https://jobminglr-website.s3.us-east-1.amazonaws.com/JobMinglr+%2B+Pinpoint+(1).mp4#t=1" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
