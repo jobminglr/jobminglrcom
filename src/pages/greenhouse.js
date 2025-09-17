@@ -27,12 +27,8 @@ const GreenhousePage = () => {
           JobMinglr + Greenhouse Integration
         </h1>
 
-        <div
-          className="max-w-3xl mx-auto mt-10 mb-16 text-left text-gray-700 space-y-6"
-          data-aos="fade-up"
-          data-aos-delay="250"
-        >
-          <div className="space-y-0">
+        <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
+          <div className="flex-1 text-left space-y-4 md:pr-6">
             <p>
               JobMinglr makes hiring simple by matching quality candidates with the right roles.
             </p>
@@ -49,7 +45,7 @@ const GreenhousePage = () => {
             </p>
           </div>
 
-          <div className="mx-auto max-w-3xl" style={{ perspective: '1000px' }}>
+          <div className="flex-1 w-full md:w-auto md:max-w-none" style={{ perspective: '1000px' }}>
             <div
               className="relative rounded-3xl shadow-2xl ring-1 ring-white/10 bg-white/5 backdrop-blur overflow-hidden transition-transform duration-200 will-change-transform"
               onMouseMove={handleMouseMove}
@@ -76,6 +72,13 @@ const GreenhousePage = () => {
 
             </div>
           </div>
+        </div>
+
+        <div
+          className="max-w-3xl mx-auto mt-10 mb-16 text-left text-gray-700 space-y-6"
+          data-aos="fade-up"
+          data-aos-delay="250"
+        >
 
           <h2 className="text-2xl font-bold text-brandGreen">How to Get Started
           </h2>
