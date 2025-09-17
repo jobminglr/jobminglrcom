@@ -22,7 +22,7 @@ const GreenhousePage = () => {
         title="Greenhouse Integration"
         description="JobMinglr + Greenhouse Integration"
       />
-      <section className="container mx-auto py-20 px-6 text-center md:text-left">
+      <section className="container mx-auto py-20 px-6 text-center">
         <h1 className="text-4xl font-extrabold mb-6 text-brandGreen" data-aos="fade-up">
           JobMinglr + Greenhouse Integration
         </h1>
