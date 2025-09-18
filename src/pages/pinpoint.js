@@ -64,7 +64,7 @@ const PinPointPage = () => {
 
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
           <div className="flex-1 text-left space-y-4 md:pr-6">
-            <p>Hiring shouldn’t mean sorting through hundreds of unqualified resumes. With JobMinglr and <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a>, you put your open roles in front of the right people — automatically. </p>
+            <p>Hiring shouldn’t mean sorting through hundreds of unqualified resumes. With <a href="https://www.pinpointhq.com/integrations/jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">JobMinglr</a> and <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a>, you put your open roles in front of the right people — automatically. </p>
             <p>Our swipe-to-match platform surfaces only high-fit, match-scored candidates, and every application flows directly into Pinpoint with an ATS-ready resume.</p>
             <p>The result? Faster screening, better candidate quality, and a seamless recruiter workflow.</p>
           </div>
@@ -108,7 +108,7 @@ const PinPointPage = () => {
               <h2 className="text-2xl font-bold text-brandGreen">How to connect <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> and JobMinglr</h2>
               <p>Getting started is simple and takes only a few minutes:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Provide your <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> API key. This is the only setup step — no complex configuration.</li>
+                <li>Provide your <a href="https://help.pinpoint.support/en/articles/9353462-how-do-i-generate-a-pinpoint-api-key" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> API key. This is the only setup step — no complex configuration.</li>
                 <li>Sync begins automatically. Once connected, all of your active jobs flow into JobMinglr and refresh daily.</li>
                 <li>Start receiving candidates. As soon as job seekers swipe and apply, their applications appear in your Pinpoint dashboard in real time.</li>
               </ul>

@@ -71,7 +71,7 @@ const PinpointContactPage = () => {
 
     <section >
       <p className="text-gray-600 max-w-2xl mb-10">
-        Once you have set up your JobMinglr integration within Pinpoint, fill out the form below to finish your integration setup.      </p>
+        Once you have set up your <a href="https://www.pinpointhq.com/integrations/jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">JobMinglr integration within Pinpoint</a>, fill out the form below to finish your integration setup.      </p>
 
       {showToast && (
         <div className="mb-6 rounded-md bg-brandGreen border border-brandGreen px-6 py-4 text-sm text-white shadow-md flex items-start justify-between animate-fade-in-out transition-all duration-300 max-w-xl mx-auto">
