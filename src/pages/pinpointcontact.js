@@ -21,6 +21,8 @@ const PinpointContactPage = () => {
   const [company, setCompany] = useState("");
   const [apiKey, setApiKey] = useState("");
   const [message, setMessage] = useState("");
+  const [subDomain, setSubDomain] = useState("");
+  const [webhookSecret, setWebhookSecret] = useState("");
 
   const handleContactSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +31,9 @@ const PinpointContactPage = () => {
 
     const composedMessage = [
       company && `Company: ${company}`,
+      subDomain && `Pinpoint Sub-Domain: ${subDomain}`,
       apiKey && `API Key: ${apiKey}`,
+      webhookSecret && `Webhook Signing Secret: ${webhookSecret}`,
       message && `Message: ${message}`,
     ]
       .filter(Boolean)
@@ -59,6 +63,8 @@ const PinpointContactPage = () => {
         setCompany("");
         setApiKey("");
         setMessage("");
+        setSubDomain("");
+        setWebhookSecret("");
       } else {
         console.error("Failed to send message");
       }
@@ -71,7 +77,10 @@ const PinpointContactPage = () => {
 
     <section >
       <p className="text-gray-600 max-w-2xl mb-10">
-        Once you have set up your <a href="https://www.pinpointhq.com/integrations/jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">JobMinglr integration within Pinpoint</a>, fill out the form below to finish your integration setup.      </p>
+
+        Once the setup is completed, jobs typically sync within 24 hours.<br />
+        Our team is available to assist during setup and to answer any technical questions.
+      </p>
 
       {showToast && (
         <div className="mb-6 rounded-md bg-brandGreen border border-brandGreen px-6 py-4 text-sm text-white shadow-md flex items-start justify-between animate-fade-in-out transition-all duration-300 max-w-xl mx-auto">
@@ -89,7 +98,7 @@ const PinpointContactPage = () => {
         <form onSubmit={handleContactSubmit} className="space-y-5 max-w-xl mx-auto" >
           <div className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">First Name</label>
+              <label className="text-sm font-medium text-gray-700">First Name<span className="text-red-500">*</span></label>
               <div className="sm:col-span-2">
                 <input
                   type="text"
@@ -102,7 +111,7 @@ const PinpointContactPage = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Last Name</label>
+              <label className="text-sm font-medium text-gray-700">Last Name<span className="text-red-500">*</span></label>
               <div className="sm:col-span-2">
                 <input
                   type="text"
@@ -115,7 +124,7 @@ const PinpointContactPage = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Email</label>
+              <label className="text-sm font-medium text-gray-700">Email<span className="text-red-500">*</span></label>
               <div className="sm:col-span-2">
                 <input
                   type="email"
@@ -128,17 +137,30 @@ const PinpointContactPage = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Company</label>
+              <label className="text-sm font-medium text-gray-700">Company<span className="text-red-500">*</span></label>
               <div className="sm:col-span-2">
                 <input
                   type="text"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
                 />
               </div>
             </div>
 
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+              <label className="text-sm font-medium text-gray-700">Pinpoint Sub-Domain</label>
+              <div className="sm:col-span-2">
+                <input
+                  type="text"
+                  value={subDomain}
+                  placeholder="yourcompany.pinpointhq.com"
+                  onChange={(e) => setSubDomain(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
+                />
+              </div>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
               <label className="text-sm font-medium text-gray-700 flex items-center">API Key <InfoTooltip text={"Generate this in Pinpoint."} /></label>
@@ -147,6 +169,18 @@ const PinpointContactPage = () => {
                   type="text"
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+              <label className="text-sm font-medium text-gray-700">Pinpoint Webhook Signing Secret</label>
+              <div className="sm:col-span-2">
+                <input
+                  type="text"
+                  value={webhookSecret}
+                  onChange={(e) => setWebhookSecret(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
                 />
               </div>

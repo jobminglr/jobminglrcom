@@ -59,14 +59,14 @@ const PinPointPage = () => {
       />
       <section className="container mx-auto py-20 px-6 text-center">
         <h1 className="text-4xl font-extrabold mb-6 text-brandGreen" data-aos="fade-up">JobMinglr &amp; Pinpoint ATS Integration</h1>
-        <p className="mt-4 text-xl text-gray-700" data-aos="fade-up">Swipe. Connect. Hired.</p>
         <br />
 
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
           <div className="flex-1 text-left space-y-4 md:pr-6">
-            <p>Hiring shouldn’t mean sorting through hundreds of unqualified resumes. With <a href="https://www.pinpointhq.com/integrations/jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">JobMinglr</a> and <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a>, you put your open roles in front of the right people — automatically. </p>
-            <p>Our swipe-to-match platform surfaces only high-fit, match-scored candidates, and every application flows directly into Pinpoint with an ATS-ready resume.</p>
-            <p>The result? Faster screening, better candidate quality, and a seamless recruiter workflow.</p>
+            <p>JobMinglr makes hiring simple by matching quality candidates with the right roles</p>
+            <p>With our partnership with Pinpoint, you get a seamless way to manage applications and speed up your hiring process.</p>
+            <p>Best of all, setting up the integration only takes a few minutes and it’s free.</p>
+            <p>Find JobMinglr on the <a href="https://www.pinpointhq.com/integrations/jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint Marketplace</a>. </p>
           </div>
 
           <div className="flex-1 w-full md:w-auto md:max-w-none [perspective:1000px]">
@@ -105,18 +105,72 @@ const PinPointPage = () => {
 
           <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start gap-8 md:gap-12">
             <div className="flex-1 text-left space-y-4 md:pr-6">
-              <h2 className="text-2xl font-bold text-brandGreen">How to connect <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> and JobMinglr</h2>
-              <p>Getting started is simple and takes only a few minutes:</p>
+              <h2 className="text-2xl font-bold text-brandGreen">How to connect Pinpoint to JobMinglr</h2>
+              <p>1) Create an API Key for JobMinglr.</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Provide your <a href="https://help.pinpoint.support/en/articles/9353462-how-do-i-generate-a-pinpoint-api-key" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint</a> API key. This is the only setup step — no complex configuration.</li>
-                <li>Sync begins automatically. Once connected, all of your active jobs flow into JobMinglr and refresh daily.</li>
-                <li>Start receiving candidates. As soon as job seekers swipe and apply, their applications appear in your Pinpoint dashboard in real time.</li>
+                <li>
+                  Follow this guide:{" "}
+                  <a
+                    href="https://help.pinpoint.support/en/articles/9353462-how-do-i-generate-a-pinpoint-api-key"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brandGreen hover:underline"
+                  >
+                    Generate a Pinpoint API Key
+                  </a>
+                </li>
               </ul>
-              <p>Our team is available to assist during setup and to answer any technical questions. Most customers are live with the integration the same day they connect.</p>
+
+              <p className="font-semibold">API Key Permissions</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Candidate: Read &amp; Write</li>
+                <li>Application: Read &amp; Write</li>
+                <li>Job: Read</li>
+                <li>Interview: Read</li>
+                <li>Answer: Read &amp; Write</li>
+              </ul>
+
+              <p>2) Create a webhook for JobMinglr.</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  Follow this guide:{" "}
+                  <a
+                    href="https://help.pinpoint.support/en/articles/10176739-custom-integrations"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brandGreen hover:underline"
+                  >
+                    Custom Integrations
+                  </a>
+                </li>
+                <li>
+                  Webhook URL:{" "}
+                  <a
+                    href="https://webhook.jobminglr.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brandGreen hover:underline"
+                  >
+                    https://webhook.jobminglr.com
+                  </a>
+                </li>
+              </ul>
+
+              <p className="font-semibold">Events to Send:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>New Application</li>
+                <li>Application Stage Changed</li>
+                <li>Offer Accepted</li>
+                <li>Applicant Hired</li>
+                <li>Document Request Accepted</li>
+                <li>Job Updated</li>
+                <li>Job Deleted</li>
+                <li>Interview Scheduled</li>
+              </ul>
             </div>
 
             <div className="flex-1 text-left space-y-4 md:pr-6">
-              <h2 className="text-2xl font-bold text-brandGreen">How to Get Started</h2>
+              <h2 className="text-2xl font-bold text-brandGreen">Fill out the form with the required information</h2>
               <PinpointContactPage />
             </div>
           </div>
@@ -127,7 +181,7 @@ const PinPointPage = () => {
 
           <div className="flex-1 text-left space-y-4 md:pr-6">
             <h2 className="text-2xl font-bold text-brandGreen">Don't have an ATS?</h2>
-            <p>If your team isn’t already using Pinpoint, just click the Pinpoint logo to schedule your demo directly with Pinpoint.</p>
+            <p>Not using Pinpoint yet? Book a demo with Pinpoint to explore how it can support your hiring process.</p>
           </div>
           <div className="flex-1 w-full md:w-auto md:max-w-none" style={{ perspective: '1000px' }}>
             <a href="https://www.pinpointhq.com/?utm_source=partner&utm_medium=marketplace&utm_campaign=jobminglr" target="_blank" rel="noopener noreferrer">

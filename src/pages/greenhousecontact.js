@@ -82,6 +82,9 @@ const GreenHouseContactPage = () => {
     <section >
       <p className="text-gray-600 max-w-2xl mb-10">
         Once you have set up your JobMinglr integration within Greenhouse, fill out the form below to finish your integration setup.      </p>
+      <p className="text-gray-600 max-w-2xl mb-10">
+        Jobs typically sync within 24 hours once setup is complete.
+      </p>
 
       {showToast && (
         <div className="mb-6 rounded-md bg-brandGreen border border-brandGreen px-6 py-4 text-sm text-white shadow-md flex items-start justify-between animate-fade-in-out transition-all duration-300 max-w-xl mx-auto">

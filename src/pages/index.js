@@ -12,6 +12,8 @@ const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const videoRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [now, setNow] = useState(new Date());
+  const timeLabel = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' }).format(now);
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -113,6 +115,11 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 30000);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
     const aosAnimation = document.querySelectorAll("[data-aos]");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -157,53 +164,136 @@ const HomePage = () => {
           style={{ backgroundImage: `url(${imageUrl})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
-          <div className="relative">
-            <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight mb-6 text-white drop-shadow-lg" data-aos="fade-up">
+          <div className="relative w-full max-w-6xl">
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-white drop-shadow-lg"
+              data-aos="fade-up"
+            >
               Swipe. Connect. Hired.
             </h1>
-            <p className="text-lg sm:text-xl mb-8" data-aos="fade-up" data-aos-delay="200">
-              Your next career move is just a swipe away.
-            </p>
-            <div className="flex justify-center flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0" data-aos="fade-up" data-aos-delay="400">
-              <div className="flex flex-col items-center">
-                <span className="inline-block mb-4 px-3 py-1 bg-white text-brandGreen text-sm font-semibold rounded-full shadow">
-                  🚀 Launching in Austin, TX
-                </span>
-                <a
-                  href={appLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-brandGreen font-semibold px-6 py-3 rounded-full hover:scale-110 transition-transform duration-300"
-                >
-                  Download JobMinglr
-                </a>
+
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center text-left"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden h-[560px] flex flex-col"
+                style={{ width: '320px', margin: '0 auto' }}
+                // onMouseMove={handleMouseMove}
+                // onMouseLeave={handleMouseLeave}
+                // style={{
+                //   // height: '80%',
+                //   maxWidth: '360px',
+                //   margin: '0 auto',
+                //   transform: `rotateX(${tilt.y * 10}deg) rotateY(${tilt.x * 10}deg)`,
+                //   transition: 'transform 120ms ease-out',
+                //   transformStyle: 'preserve-3d',
+                //   willChange: 'transform'
+                // }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                {/*  <div className="flex items-center justify-between px-4 pt-2 text-[10px] font-semibold text-[#37473C]">
+                  <span>{timeLabel}</span>
+                  <span className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" stroke="currentColor">
+                      <rect x="1" y="6" width="18" height="12" rx="2" ry="2" strokeWidth="2" />
+                      <line x1="23" y1="10" x2="23" y2="14" strokeWidth="2" />
+                    </svg>
+                  </span>
+                </div> */}
+
+                <div className="flex-1 flex items-center justify-center px-5 bg-gradient-to-b from-[#F6F1E6] to-[#c0392b]">
+                  <div className="bg-[#ffffff] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-[420px]">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-[#2F6858] mb-3 md:mb-4">I’m looking for a job</h3>
+                      <ul className="list-none md:list-disc md:list-inside space-y-1 md:space-y-2 text-base">
+                        <li>Swipe through jobs.</li>
+                        <li>Connect with recruiters.</li>
+                        <li>Get hired faster.</li>
+                      </ul>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => scrollToSection("jobMinglrForSeekersSection")}
+                      className="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#002923] text-white font-semibold shadow hover:brightness-95 transition"
+                    >
+                      Get hired faster
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden h-[560px] flex flex-col"
+                style={{ width: '320px', margin: '0 auto' }}
+                // onMouseMove={handleMouseMove}
+                // onMouseLeave={handleMouseLeave}
+                // style={{
+                //   // height: '80%',
+                //   maxWidth: '360px',
+                //   margin: '0 auto',
+                //   transform: `rotateX(${tilt.y * 10}deg) rotateY(${tilt.x * 10}deg)`,
+                //   transition: 'transform 120ms ease-out',
+                //   transformStyle: 'preserve-3d',
+                //   willChange: 'transform'
+                // }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                {/* <div className="flex items-center justify-between px-4 pt-2 text-[10px] font-semibold text-[#37473C]">
+                  <span>{timeLabel}</span>
+                  <span className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" stroke="currentColor">
+                      <rect x="1" y="6" width="18" height="12" rx="2" ry="2" strokeWidth="2" />
+                      <line x1="23" y1="10" x2="23" y2="14" strokeWidth="2" />
+                    </svg>
+                  </span>
+                </div> */}
+                {/* <div className="h-2" /> */}
+                <div className="flex-1 flex items-center justify-center px-5 bg-gradient-to-b from-[#F6F1E6] to-[#c0392b]">
+                  <div className="bg-white text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#E6D9C8]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-[420px]">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-[#2F6858] mb-3 md:mb-4">I’m hiring</h3>
+                      <ul className="list-none md:list-disc md:list-inside space-y-1 md:space-y-2 text-base">
+                        <li>Post jobs instantly.</li>
+                        <li>Match with qualified candidates.</li>
+                        <li>Make the right hire.</li>
+                      </ul>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => scrollToSection("jobMinglrForRecruiterSection")}
+                      className="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#002923] text-white font-semibold shadow hover:brightness-95 transition"
+                    >
+                      Start hiring
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
+            {/* 
             <button
               className="block text-3xl mt-12 animate-bounce cursor-pointer mx-auto"
               onClick={() => scrollToSection("jobMinglrForSection")}
+              aria-label="Scroll to next section"
             >
               ⌄
-            </button>
+            </button> */}
           </div>
         </section>
 
-        {/* Demo video — interactive 3D card with PiP and modal */}
         <section className="relative py-20 px-6 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden min-h-screen snap-start">
-          {/* background accents */}
           <div className="pointer-events-none absolute inset-0 opacity-40">
             <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-brandGreen blur-3xl animate-pulse" />
             <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-emerald-700 blur-3xl animate-pulse" />
           </div>
-
           <div className="container mx-auto max-w-6xl relative">
             <div className="text-center mb-10">
               <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-white/10 ring-1 ring-white/20">Product demo</span>
               <h2 className="text-3xl sm:text-4xl font-bold mt-4">See JobMinglr in action</h2>
               <p className="text-gray-300 mt-2">A quick peek at swipe, match score, and chat—right inside the app.</p>
             </div>
-
-            {/* perspective wrapper */}
             <div className="mx-auto max-w-3xl" style={{ perspective: '1000px' }}>
               <div
                 className="relative rounded-3xl shadow-2xl ring-1 ring-white/10 bg-white/5 backdrop-blur overflow-hidden transition-transform duration-200 will-change-transform"
@@ -211,9 +301,7 @@ const HomePage = () => {
                 onMouseLeave={handleMouseLeave}
                 style={{ transform: `rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)` }}
               >
-                {/* subtle gradient edge */}
                 <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20" />
-
                 <video
                   ref={videoRef}
                   className="block w-full h-full aspect-video object-cover"
@@ -229,7 +317,6 @@ const HomePage = () => {
                   Your browser does not support the video tag.
                 </video>
 
-                {/* floating controls */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3">
                   <button
                     type="button"
@@ -260,7 +347,6 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* modal overlay */}
           {isModalOpen && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true">
               <div className="relative w-full max-w-5xl">
@@ -289,6 +375,180 @@ const HomePage = () => {
               </div>
             </div>
           )}
+        </section>
+
+        <section id="jobMinglrForSeekersSection"
+          className="bg-brandGreen text-white text-center relative bg-cover bg-center min-h-screen flex items-center justify-center px-4 snap-start"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
+          <div className="pointer-events-none absolute inset-0 opacity-40">
+            <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-brandGreen blur-3xl animate-pulse" />
+            <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-emerald-700 blur-3xl animate-pulse" />
+          </div>
+          <div className="relative  max-w-6xl">
+            <div
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center text-left"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                  height: '80%',
+                  maxWidth: '360px',
+                  margin: '0 auto',
+                  transform: `rotateX(${tilt.y * 10}deg) rotateY(${tilt.x * 10}deg)`,
+                  transition: 'transform 1020ms ease-out',
+                  transformStyle: 'preserve-3d',
+                  willChange: 'transform'
+                }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                  <div>
+                    <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Swipe</h3>
+                    <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Swipe jobs that fits.</p>
+                    <div className="mt-4 bg-white rounded-[24px] border border-[#E6D9C8] shadow-lg w-full aspect-[9/20] overflow-hidden">
+                      <img
+                        src="https://jobminglr-website.s3.us-east-1.amazonaws.com/job+listing+light+green.JPG"
+                        alt="In-app chat mockup"
+                        className="w-full h-full object-contain block"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
+                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                  <div>
+                    <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Connect</h3>
+                    <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Connect with recruiters in‑app.</p>
+                    <div className="mt-4 bg-white rounded-[24px] border border-[#E6D9C8] shadow-lg w-full aspect-[9/20] overflow-hidden">
+                      <img
+                        src="https://jobminglr-website.s3.us-east-1.amazonaws.com/chat.png"
+                        alt="In-app chat mockup"
+                        className="w-full h-full object-contain block"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
+                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                  <div>
+                    <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Hired</h3>
+                    <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Hired on the spot.</p>
+                    <div className="mt-4 bg-white rounded-[24px] border border-[#E6D9C8] shadow-lg w-full aspect-[9/20] overflow-hidden">
+                      <img
+                        src="https://jobminglr-website.s3.us-east-1.amazonaws.com/you+start+monday.jpg"
+                        alt="In-app chat mockup"
+                        className="w-full h-full object-contain block"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div><a href="https://apps.apple.com/us/app/jobminglr/id6738838504" target="_blank" rel="noopener noreferrer">Download JobMinglr</a> today on the Apple App Store & Google Play Store.</div>
+
+          </div>
+        </section>
+
+        <section id="jobMinglrForRecruiterSection"
+          className="bg-brandGreen text-white text-center relative bg-cover bg-center min-h-screen flex items-center justify-center px-4 snap-start"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
+          <div className="relative max-w-6xl">
+            <div
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center text-left"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
+                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                  <div>
+                    <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Post</h3>
+                    <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Post jobs instantly.</p>
+                    <div className="mt-4 bg-white rounded-[24px] border border-[#E6D9C8] shadow-lg w-full aspect-[9/20] overflow-hidden">
+                      <img
+                        src="https://jobminglr-website.s3.us-east-1.amazonaws.com/job+listing+green.JPG"
+                        alt="In-app chat mockup"
+                        className="w-full h-full object-contain block"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* </div> */}
+              <div
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
+                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                  <div>
+                    <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Match</h3>
+                    <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Match with qualified candidates.</p>
+                    <div className="mt-4 bg-white rounded-[24px] border border-[#E6D9C8] shadow-lg w-full aspect-[9/20] overflow-hidden">
+                      <img
+                        src="https://jobminglr-website.s3.us-east-1.amazonaws.com/job+listing+beige.JPG"
+                        alt="In-app chat mockup"
+                        className="w-full h-full object-contain block"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
+                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                  <div>
+                    <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Hire</h3>
+                    <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Hire the right fit.</p>
+                    <div className="mt-4 bg-white rounded-[24px] border border-[#E6D9C8] shadow-lg w-full aspect-[9/20] overflow-hidden">
+                      <img
+                        src="https://jobminglr-website.s3.us-east-1.amazonaws.com/offer+sent.jpg"
+                        alt="In-app chat mockup"
+                        className="w-full h-full object-contain block"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div><a href="https://apps.apple.com/us/app/jobminglr/id6738838504" target="_blank" rel="noopener noreferrer">Download JobMinglr</a> today on the Apple App Store & Google Play Store.</div>
+
+          </div>
         </section>
 
         <section id="jobMinglrForSection" className="container mx-auto py-16 px-6 text-center snap-start">
@@ -365,16 +625,20 @@ const HomePage = () => {
 
         <section className="bg-white py-16 px-6 snap-start">
           <div className="container mx-auto text-center max-w-3xl">
-            <h2 className="text-3xl font-bold mb-8">What our users say</h2>
-            <div className="space-y-8">
-              <blockquote className="text-lg italic text-gray-800" data-aos="fade-left">
-                “I landed my dream job within a week. The swipe feature is genius!”
-                <footer className="mt-2 text-sm text-gray-500">– Aditya C., Chief Operations Manager</footer>
-              </blockquote>
-              <blockquote className="text-lg italic text-gray-800" data-aos="fade-left">
-                “Saves hours of filtering resumes. A must-have for recruiters.”
-                <footer className="mt-2 text-sm text-gray-500">– Traci R., Hiring Manager</footer>
-              </blockquote>
+            <h2 className="text-3xl font-bold mb-8">Connect JobMinglr to your favorite ATS in minutes.</h2>
+            <div className="mt-6 grid grid-cols-2 gap-8 items-center justify-items-center">
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/GREENHOUSE_WORDMARK_GREEN.png"
+                alt="Greenhouse ATS logo"
+                className="h-40 w-auto object-contain opacity-90"
+                loading="lazy"
+              />
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/pinpoint+logo.png"
+                alt="Pinpoint ATS logo"
+                className="h-40 w-auto object-contain opacity-90"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
@@ -408,7 +672,7 @@ const HomePage = () => {
           )}
         </section>
       </Layout1>
-    </div>
+    </div >
   );
 };
 

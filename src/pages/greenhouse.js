@@ -36,7 +36,7 @@ const GreenhousePage = () => {
               JobMinglr makes hiring simple by matching quality candidates with the right roles.
             </p>
 
-            <p>When combined with Greenhouse, you get a seamless way to manage applications and speed up your hiring process.</p>
+            <p>With our partnership with Greenhouse, you get a seamless way to manage applications and speed up your hiring process.</p>
 
             <p>Best of all, setting up the integration only takes a few minutes — and it’s free.
             </p>
@@ -44,7 +44,7 @@ const GreenhousePage = () => {
             <p>You can find JobMinglr in the <a href="https://integrations.greenhouse.com/" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Greenhouse Marketplace</a>
             </p>
 
-            <p>For setting up your integration, follow this <a href="https://support.greenhouse.io/hc/en-us/articles/40195031336475-Jobminglr-integration" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Setup Guide</a> provided by Greenhouse.
+            <p>For setup, follow this official <a href="https://support.greenhouse.io/hc/en-us/articles/40195031336475-Jobminglr-integration" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Greenhouse Integration Guide</a>.
             </p>
           </div>
 
