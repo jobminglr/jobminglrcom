@@ -183,7 +183,7 @@ const HomePage = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen w-full bg-gradient-to-br from-brandGreen via-emerald-700 to-brandGreen-dark flex items-center justify-center animate-fade-in">
+      <div className="min-h-[100svh] w-full bg-gradient-to-br from-brandGreen via-emerald-700 to-brandGreen-dark flex items-center justify-center p-6 animate-fade-in">
         <div className="flex flex-col items-center gap-8">
           <div className="relative">
             <img
@@ -199,7 +199,7 @@ const HomePage = () => {
   }
 
   return (
-    <div className="overflow-x-hidden h-screen overflow-y-scroll snap-y scroll-smooth">
+    <div className="overflow-x-hidden min-h-[100svh] md:h-screen overflow-y-auto md:overflow-y-scroll md:snap-y scroll-smooth">
       <Layout1>
         <SEO1
           title="Home"
@@ -212,24 +212,27 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
           <div className="relative w-full max-w-8xl">
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-white drop-shadow-lg"
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug md:leading-tight mb-6 text-white drop-shadow-lg"
+              data-aos="fade-up"
+            >.
+            </h1><h1
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug md:leading-tight mb-6 text-white drop-shadow-lg"
               data-aos="fade-up"
             >
               Swipe. Connect. Hired.
             </h1>
             <div
-              className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 items-center text-left"
+              className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 items-start text-left "
               data-aos="fade-up"
               data-aos-delay="200"
             >
               <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden h-[560px] flex flex-1"
-                style={{ width: '320px', margin: '0 auto' }}
+                className="relative bg-black rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-xs sm:max-w-sm mx-auto min-h-[420px] md:h-[560px] flex"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
                 <div className="flex-1 flex items-center justify-center px-5 bg-gradient-to-b from-[#5f1c15] to-[#c0392b]">
-                  <div className="bg-[#ffffff] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-[420px]">
+                  <div className="bg-[#ffffff] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-[380px] md:h-[520px]">
                     <div>
                       <h3 className="text-2xl font-semibold text-[#2F6858] mb-3 md:mb-4">I’m looking for a job</h3>
                       <ul className="list-none md:list-disc md:list-inside space-y-1 md:space-y-2 text-base">
@@ -249,13 +252,12 @@ const HomePage = () => {
                 </div>
               </div>
               <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden h-[560px] flex flex-1"
-                style={{ width: '320px', margin: '0 auto' }}
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-xs sm:max-w-sm mx-auto min-h-[420px] md:h-[560px] flex"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
                 <div className="flex-1 flex items-center justify-center px-5 bg-gradient-to-b from-[#5f1c15] to-[#c0392b]">
-                  <div className="bg-white text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#E6D9C8]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-[420px]">
+                  <div className="bg-white text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#E6D9C8]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-[380px] md:h-[520px]">
                     <div>
                       <h3 className="text-2xl font-semibold text-[#2F6858] mb-3 md:mb-4">I’m hiring</h3>
                       <ul className="list-none md:list-disc md:list-inside space-y-1 md:space-y-2 text-base">
@@ -330,6 +332,34 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+          {isModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true">
+              <div className="relative w-full max-w-5xl">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  aria-label="Close demo"
+                  className="absolute -top-10 right-0 text-white/80 hover:text-white"
+                >
+                  ✕ Close
+                </button>
+                <div className="rounded-2xl overflow-hidden ring-1 ring-white/20 bg-black">
+                  <video
+                    className="w-full h-full aspect-video object-contain bg-black"
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster="/video-poster.jpg"
+                  >
+                    <source src="https://jobminglr-website.s3.us-east-1.amazonaws.com/jobminglr+website+video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
         <section id="jobMinglrForSeekersSection"
@@ -341,24 +371,17 @@ const HomePage = () => {
             <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-emerald-700 blur-3xl animate-pulse" />
           </div>
           <div className="relative  max-w-6xl">
+            <br />
+            <br />
             <div
               className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center text-left"
             >
               <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                style={{
-                  height: '80%',
-                  maxWidth: '360px',
-                  // margin: '0 auto',
-                  // transform: `rotateX(${tilt.y * 3}deg) rotateY(${tilt.x * 3}deg)`,
-                  // transition: 'transform 1020ms ease-out',
-                  // transformStyle: 'preserve-3d',
-                  // willChange: 'transform'
-                }}
               >
-                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
                   <div>
                     <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Swipe</h3>
                     <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Swipe jobs that fits.</p>
@@ -374,10 +397,9 @@ const HomePage = () => {
                 </div>
               </div>
               <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
-                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
-                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
                   <div>
                     <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Connect</h3>
                     <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Connect with recruiters in‑app.</p>
@@ -393,10 +415,9 @@ const HomePage = () => {
                 </div>
               </div>
               <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
-                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
-                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
                   <div>
                     <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Hired</h3>
                     <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Hired on the spot.</p>
@@ -412,6 +433,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+            <br />
             <div><a href="https://apps.apple.com/us/app/jobminglr/id6738838504" target="_blank" rel="noopener noreferrer">Download JobMinglr</a> today on the Apple App Store & Google Play Store.</div>
           </div>
         </section>
@@ -420,14 +442,15 @@ const HomePage = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
           <div className="relative max-w-6xl">
+            <br />
+            <br />
             <div
               className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center text-left"
             >
               <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
-                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
-                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
                   <div>
                     <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Post</h3>
                     <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Post jobs instantly.</p>
@@ -444,10 +467,9 @@ const HomePage = () => {
               </div>
               {/* </div> */}
               <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
-                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
-                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
                   <div>
                     <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Match</h3>
                     <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Match with qualified candidates.</p>
@@ -464,10 +486,9 @@ const HomePage = () => {
               </div>
 
               <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden flex flex-col aspect-[9/20]"
-                style={{ height: '80%', maxWidth: '360px', margin: '0 auto' }}
+                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
-                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0">
+                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
                   <div>
                     <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Hire</h3>
                     <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Hire the right fit.</p>
@@ -483,6 +504,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+            <br />
             <div><a href="https://apps.apple.com/us/app/jobminglr/id6738838504" target="_blank" rel="noopener noreferrer">Download JobMinglr</a> today on the Apple App Store & Google Play Store.</div>
 
           </div>
@@ -500,7 +522,7 @@ const HomePage = () => {
                   <img
                     src="https://jobminglr-website.s3.us-east-1.amazonaws.com/GREENHOUSE_WORDMARK_GREEN.png"
                     alt="Greenhouse ATS logo"
-                    className="h-40 w-auto object-contain opacity-90"
+                    className="h-24 md:h-40 w-auto object-contain opacity-90"
                     loading="lazy"
                   />
                 </div>
@@ -512,7 +534,7 @@ const HomePage = () => {
                   <img
                     src="https://jobminglr-website.s3.us-east-1.amazonaws.com/pinpoint+logo.png"
                     alt="Pinpoint ATS logo"
-                    className="h-40 w-auto object-contain opacity-90"
+                    className="h-24 md:h-40 w-auto object-contain opacity-90"
                     loading="lazy"
                   />
                 </div>
