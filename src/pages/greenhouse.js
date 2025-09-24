@@ -34,11 +34,8 @@ const GreenhousePage = () => {
           <div className="flex-1 text-left space-y-4 md:pr-6">
             <p>
               JobMinglr makes hiring simple by matching quality candidates with the right roles.
-            </p>
-
-            <p>With our partnership with Greenhouse, you get a seamless way to manage applications and speed up your hiring process.</p>
-
-            <p>Best of all, setting up the integration only takes a few minutes — and it’s free.
+              With our partnership with Greenhouse, you get a seamless way to manage applications and speed up your hiring process.
+              Best of all, setting up the integration only takes a few minutes — and it’s free.
             </p>
 
             <p>You can find JobMinglr in the <a href="https://integrations.greenhouse.com/" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Greenhouse Marketplace</a>
@@ -80,30 +77,36 @@ const GreenhousePage = () => {
         <br />
         <br />
         <section className="bg-brandGreen/5 py-20">
+          <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+            <div className="flex">
+              <div
+                className="relative w-full rounded-3xl shadow-2xl ring-1 ring-white/10 bg-white/5 backdrop-blur p-6 md:p-8 text-left"
+                data-aos="fade-up"
+                data-aos-delay="250"
+              >
+                <h2 className="text-2xl font-bold text-brandGreen">How to Get Started</h2>
+                <div className="mt-6 text-gray-700">
+                  <GreenHouseContactPage />
+                </div>
+                <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20" />
+              </div>
+            </div>
 
-          <div
-            className="max-w-3xl mx-auto mb-16 text-left text-gray-700 space-y-6"
-            data-aos="fade-up"
-            data-aos-delay="250"
-          >
-
-            <h2 className="text-2xl font-bold text-brandGreen">How to Get Started
-            </h2>
-
-            <GreenHouseContactPage />
+            <div className="flex">
+              <div className="relative w-full rounded-3xl shadow-2xl ring-1 ring-white/10 bg-white/5 backdrop-blur p-6 md:p-8 text-left">
+                <h2 className="text-2xl font-bold text-brandGreen">Don’t have Greenhouse yet?</h2>
+                <div className="mt-4 space-y-4 text-gray-700 leading-relaxed">
+                  <p>If your team isn’t already using Greenhouse, fill out the form and we’ll connect you with a Greenhouse representative for a personalized demo.</p>
+                  <p>You won’t need to search or sign up elsewhere. We’ll handle the referral and ensure you’re taken care of.</p>
+                </div>
+                <div className="mt-6">
+                  <GreenhouseReferralContactComponent />
+                </div>
+                <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20" />
+              </div>
+            </div>
           </div>
         </section>
-        <br />
-        <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start gap-8 md:gap-12">
-          <div className="flex-1 text-left space-y-4 md:pr-6">
-            <h2 className="text-2xl font-bold text-brandGreen">Don’t have Greenhouse Yet?</h2>
-            <p>If your team isn’t already using Greenhouse, just fill out the form below and we’ll connect you directly with a Greenhouse representative to schedule a personalized demo.</p>
-            <p> This way, you don’t need to go searching or sign up elsewhere — we’ll handle the referral and make sure you’re taken care of.</p>
-          </div>
-          <div className="flex-1 w-full md:w-auto md:max-w-none" style={{ perspective: '1000px' }}>
-            <GreenhouseReferralContactComponent />
-          </div>
-        </div>
         <br />
         <section className="bg-brandGreen/5 py-20">
 

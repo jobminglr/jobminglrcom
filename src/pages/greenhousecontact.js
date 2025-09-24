@@ -1,4 +1,4 @@
-// src/pages/contact.js
+// src/pages/greenhousecontact.js
 import React, { useState } from "react";
 import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
@@ -161,7 +161,7 @@ const GreenHouseContactPage = () => {
               <label className="text-sm font-medium text-gray-700 flex items-center">Job Board Link <InfoTooltip text={"Paste the full Greenhouse job board URL (e.g. https://boards.greenhouse.io/examplecompany)."} /></label>
               <div className="sm:col-span-2">
                 <div className="flex rounded shadow-sm">
-                  <span className="inline-flex items-center px-3 rounded-l border border-r-0 border-gray-300 bg-gray-50 text-gray-600 text-sm">
+                  <span className="inline-flex items-center px-2 rounded-l border border-r-0 border-gray-300 bg-gray-50 text-gray-600 text-xs">
                     https://boards.greenhouse.io/
                   </span>
                   <input
@@ -177,7 +177,7 @@ const GreenHouseContactPage = () => {
                       setBoardToken(`https://boards.greenhouse.io/${cleaned}`);
                     }}
                     placeholder="company-name"
-                    className="flex-1 min-w-0 w-full px-4 py-3 border border-gray-300 rounded-r shadow-sm"
+                    className="flex-1 min-w-0 w-full px-3 py-2 text-sm border border-gray-300 rounded-r shadow-sm"
                   />
                 </div>
                 <p className="text-xs text-gray-500 mt-1">We’ll build the full URL for you.</p>

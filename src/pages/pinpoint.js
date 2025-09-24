@@ -63,8 +63,7 @@ const PinPointPage = () => {
 
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
           <div className="flex-1 text-left space-y-4 md:pr-6">
-            <p>JobMinglr makes hiring simple by matching quality candidates with the right roles</p>
-            <p>With our partnership with Pinpoint, you get a seamless way to manage applications and speed up your hiring process.</p>
+            <p>JobMinglr makes hiring simple by matching quality candidates with the right roles. With our partnership with Pinpoint, you get a seamless way to manage applications and speed up your hiring process.</p>
             <p>Best of all, setting up the integration only takes a few minutes and it’s free.</p>
             <p>Find JobMinglr on the <a href="https://www.pinpointhq.com/integrations/jobminglr" target="_blank" rel="noopener noreferrer" className="text-brandGreen hover:underline">Pinpoint Marketplace</a>. </p>
           </div>
