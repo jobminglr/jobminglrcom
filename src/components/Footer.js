@@ -5,8 +5,15 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from "react-
 
 const Footer = () => {
   return (
-    <footer className="bg-brandGreen-dark text-gray-100 py-6 mt-12">
-      <div className="container mx-auto text-center text-sm">
+    <footer className="relative bg-brandGreen-dark text-gray-100 py-6 mt-12 overflow-hidden">
+      {/* Background image with 70% opacity */}
+      <img
+        src="https://jobminglr-website.s3.us-east-1.amazonaws.com/backgound-1.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="container mx-auto text-center text-sm relative z-10">
         <div className="mb-4 space-x-4">
           <Link to="/about" className="hover:underline">About</Link>
           <Link to="/features" className="hover:underline">Features</Link>
@@ -43,7 +50,6 @@ const Footer = () => {
           <Link to="/security" className="hover:underline mb-2 sm:mb-0">Security</Link>
           <Link to="/terms-of-service" className="hover:underline mb-2 sm:mb-0">Terms of Service</Link>
         </div>
-
       </div>
     </footer>
   );

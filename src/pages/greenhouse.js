@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Layout1 from "../components/Layout1";
 import SEO1 from "../components/SEO1";
 import "aos/dist/aos.css";
-import { navigate } from "gatsby";
 import GreenHouseContactPage from "./greenhousecontact";
 
 import GreenhouseReferralContactComponent from "./greenhousereferralcontact";

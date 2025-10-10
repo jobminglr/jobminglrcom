@@ -1,7 +1,5 @@
 // src/pages/contact.js
 import React, { useState } from "react";
-import Layout1 from "../components/Layout1";
-import SEO1 from "../components/SEO1";
 import "aos/dist/aos.css";
 
 const GreenhouseReferralContactComponent = () => {
