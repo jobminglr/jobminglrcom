@@ -226,56 +226,18 @@ const HomePage = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <div
-                className="relative bg-black rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-xs sm:max-w-sm mx-auto min-h-[420px] md:h-[560px] flex"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <div className="flex-1 flex items-center justify-center px-5 bg-gradient-to-b from-[#5f1c15] to-[#c0392b]">
-                  <div className="bg-[#ffffff] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-[380px] md:h-[520px]">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-[#2F6858] mb-3 md:mb-4">I’m looking for a job</h3>
-                      <ul className="list-none md:list-disc md:list-inside space-y-1 md:space-y-2 text-base">
-                        <li>Swipe through jobs.</li>
-                        <li>Connect with recruiters.</li>
-                        <li>Get hired faster.</li>
-                      </ul>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => scrollToSection("jobMinglrForSeekersSection")}
-                      className="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#002923] text-white font-semibold shadow hover:brightness-95 transition"
-                    >
-                      Get hired faster
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-xs sm:max-w-sm mx-auto min-h-[420px] md:h-[560px] flex"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <div className="flex-1 flex items-center justify-center px-5 bg-gradient-to-b from-[#5f1c15] to-[#c0392b]">
-                  <div className="bg-white text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#E6D9C8]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-[380px] md:h-[520px]">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-[#2F6858] mb-3 md:mb-4">I’m hiring</h3>
-                      <ul className="list-none md:list-disc md:list-inside space-y-1 md:space-y-2 text-base">
-                        <li>Post jobs instantly.</li>
-                        <li>Match with qualified candidates.</li>
-                        <li>Make the right hire.</li>
-                      </ul>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => scrollToSection("jobMinglrForRecruiterSection")}
-                      className="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#002923] text-white font-semibold shadow hover:brightness-95 transition"
-                    >
-                      Start hiring
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/I'm+looking+for+talent.png"
+                alt="In-app chat mockup"
+                className="w-full h-full object-contain block"
+                loading="lazy"
+              />
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/I'm+a+job+seeker.png"
+                alt="In-app chat mockup"
+                className="w-full h-full object-contain block"
+                loading="lazy"
+              />
               <div className="container mx-auto max-w-6xl relative md:col-span-2">
                 <div className="text-center mb-10">
                 </div>
