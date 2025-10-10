@@ -101,12 +101,6 @@ const HomePage = () => {
   if (isLoading) {
     return (
       <div className="min-h-[100svh] w-full bg-gradient-to-br from-brandGreen via-emerald-700 to-brandGreen-dark flex items-center justify-center p-6 animate-fade-in">
-        <img
-          src="https://jobminglr-website.s3.us-east-1.amazonaws.com/backgound-1.png"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none z-0"
-          aria-hidden="true"
-        />
         <div className="flex flex-col items-center gap-8">
           <div className="relative">
             <img
