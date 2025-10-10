@@ -207,9 +207,9 @@ const HomePage = () => {
         />
         <section
           className="bg-brandGreen text-white text-center relative bg-cover bg-center min-h-screen flex items-center justify-center px-4 snap-start"
-          style={{ backgroundImage: `url(${imageUrl})` }}
+          style={{ backgroundImage: `url(https://jobminglr-website.s3.us-east-1.amazonaws.com/backgound-1.png)` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-70" />
           <div className="relative w-full max-w-8xl">
             <h1
               className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug md:leading-tight mb-6 text-white drop-shadow-lg"
@@ -364,8 +364,10 @@ const HomePage = () => {
 
         <section id="jobMinglrForSeekersSection"
           className=" text-white text-center relative bg-cover bg-center min-h-screen flex items-center justify-center px-4 snap-start"
+          style={{ backgroundImage: `url(https://jobminglr-website.s3.us-east-1.amazonaws.com/backgound-1.png)` }}
+
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-70" />
           <div className="pointer-events-none absolute inset-0 opacity-40">
             <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-brandGreen blur-3xl animate-pulse" />
             <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-emerald-700 blur-3xl animate-pulse" />
@@ -376,12 +378,18 @@ const HomePage = () => {
             <div
               className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center text-left"
             >
-              <div
+              {/* <div
                 className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-              >
-                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
+              > */}
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/Swipe+v2.png"
+                alt="In-app chat mockup"
+                className="w-full h-full object-contain block"
+                loading="lazy"
+              />
+              {/* <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
                   <div>
                     <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Swipe</h3>
                     <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Swipe jobs that fits.</p>
@@ -394,12 +402,12 @@ const HomePage = () => {
                       />
                     </div>
                   </div>
-                </div>
-              </div>
-              <div
+                </div> */}
+              {/* </div> */}
+              {/* <div
                 className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
-              >
-                <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
+              > */}
+              {/* <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
                   <div>
                     <h3 className="text-3xl font-extrabold text-[#1F513F] text-center">Connect</h3>
                     <p className="text-xs font-semibold text-[#EB5B53] text-center mt-1">Connect with recruiters in‑app.</p>
@@ -412,9 +420,15 @@ const HomePage = () => {
                       />
                     </div>
                   </div>
-                </div>
-              </div>
-              <div
+                </div> */}
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/Connect+v2.png"
+                alt="In-app chat mockup"
+                className="w-full h-full object-contain block"
+                loading="lazy"
+              />
+              {/* </div> */}
+              {/* <div
                 className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
                 <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
@@ -431,7 +445,13 @@ const HomePage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/Hired+v2.png"
+                alt="In-app chat mockup"
+                className="w-full h-full object-contain block"
+                loading="lazy"
+              />
             </div>
             <br />
             <div><a href="https://apps.apple.com/us/app/jobminglr/id6738838504" target="_blank" rel="noopener noreferrer">Download JobMinglr</a> today on the Apple App Store & Google Play Store.</div>
@@ -439,15 +459,16 @@ const HomePage = () => {
         </section>
         <section id="jobMinglrForRecruiterSection"
           className="bg-brandGreen text-white text-center relative bg-cover bg-center min-h-screen flex items-center justify-center px-4 snap-start"
+          style={{ backgroundImage: `url(https://jobminglr-website.s3.us-east-1.amazonaws.com/backgound-1.png)` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brandGreen to-brandGreen-dark opacity-70" />
           <div className="relative max-w-6xl">
             <br />
             <br />
             <div
               className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center text-left"
             >
-              <div
+              {/* <div
                 className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
                 <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
@@ -464,9 +485,15 @@ const HomePage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/Post+v2.png"
+                alt="In-app chat mockup"
+                className="w-full h-full object-contain block"
+                loading="lazy"
+              />
               {/* </div> */}
-              <div
+              {/* <div
                 className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
                 <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
@@ -483,9 +510,14 @@ const HomePage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div
+              </div> */}
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/Match+v2.png"
+                alt="In-app chat mockup"
+                className="w-full h-full object-contain block"
+                loading="lazy"
+              />
+              {/* <div
                 className="relative bg-white rounded-[2.5rem] border border-black/10 shadow-2xl overflow-hidden w-full max-w-[min(92vw,22rem)] md:max-w-[22rem] aspect-[9/20] mx-auto flex flex-col max-h-[80svh] md:max-h-[80vh]"
               >
                 <div className="bg-[#ECEED9] text-[#1C1B1A] rounded-[1.75rem] p-6 shadow-2xl border border-[#E6D9C8] ring-1 ring-[#436052]/60 w-full max-w-xs md:max-w-none text-center md:text-left flex flex-col justify-between min-h-0 h-full">
@@ -502,7 +534,13 @@ const HomePage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              <img
+                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/Hire+v2.png"
+                alt="In-app chat mockup"
+                className="w-full h-full object-contain block"
+                loading="lazy"
+              />
             </div>
             <br />
             <div><a href="https://apps.apple.com/us/app/jobminglr/id6738838504" target="_blank" rel="noopener noreferrer">Download JobMinglr</a> today on the Apple App Store & Google Play Store.</div>
