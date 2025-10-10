@@ -50,6 +50,7 @@ const GreenhousePage = () => {
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{ transform: `rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)` }}
+              role="presentation"
             >
               {/* subtle gradient edge */}
               <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20" />

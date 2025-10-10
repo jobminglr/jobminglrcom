@@ -3,14 +3,16 @@ import React, { useState } from "react";
 import "aos/dist/aos.css";
 
 const InfoTooltip = ({ text }) => (
-  <span className="relative group inline-flex items-center align-middle ml-1" tabIndex={0} aria-label={text}>
+  <span className="relative group inline-flex items-center align-middle ml-1" aria-label={text}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-gray-400 group-hover:text-gray-700">
       <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm.75 15.5h-1.5v-6h1.5v6zm0-8h-1.5v-1.5h1.5V9.5z" />
     </svg>
-    <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 z-10 rounded bg-gray-900 text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition shadow-lg whitespace-normal break-words leading-snug min-w-[16rem] w-[28rem] sm:w-[30rem] max-w-[90vw]">      {text}
+    <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 z-10 rounded bg-gray-900 text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition shadow-lg whitespace-normal break-words leading-snug min-w-[16rem] w-[28rem] sm:w-[30rem] max-w-[90vw]">
+      {text}
     </span>
   </span>
 );
+
 
 const GreenHouseContactPage = () => {
   const [showToast, setShowToast] = useState(false);
@@ -99,11 +101,11 @@ const GreenHouseContactPage = () => {
       {!showToast && (
         <form onSubmit={handleContactSubmit} className="space-y-5 max-w-xl mx-auto" >
           <div className="space-y-4">
-            {/* First Name */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">First Name</label>
+              <label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name</label>
               <div className="sm:col-span-2">
                 <input
+                  id="firstName"
                   type="text"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
@@ -112,12 +114,11 @@ const GreenHouseContactPage = () => {
                 />
               </div>
             </div>
-
-            {/* Last Name */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Last Name</label>
+              <label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name</label>
               <div className="sm:col-span-2">
                 <input
+                  id="lastName"
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
@@ -126,12 +127,11 @@ const GreenHouseContactPage = () => {
                 />
               </div>
             </div>
-
-            {/* Email */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Email</label>
+              <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
               <div className="sm:col-span-2">
                 <input
+                  id="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -140,12 +140,11 @@ const GreenHouseContactPage = () => {
                 />
               </div>
             </div>
-
-            {/* Company */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Company</label>
+              <label htmlFor="company" className="text-sm font-medium text-gray-700">Company</label>
               <div className="sm:col-span-2">
                 <input
+                  id="company"
                   type="text"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
@@ -153,16 +152,17 @@ const GreenHouseContactPage = () => {
                 />
               </div>
             </div>
-
-            {/* Job Board Link */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700 flex items-center">Job Board Link <InfoTooltip text={"Paste the full Greenhouse job board URL (e.g. https://boards.greenhouse.io/examplecompany)."} /></label>
+              <label htmlFor="jobBoardLink" className="text-sm font-medium text-gray-700 flex items-center">
+                Job Board Link <InfoTooltip text={"Paste the full Greenhouse job board URL (e.g. https://boards.greenhouse.io/examplecompany)."} />
+              </label>
               <div className="sm:col-span-2">
                 <div className="flex rounded shadow-sm">
                   <span className="inline-flex items-center px-2 rounded-l border border-r-0 border-gray-300 bg-gray-50 text-gray-600 text-xs">
                     https://boards.greenhouse.io/
                   </span>
                   <input
+                    id="jobBoardLink"
                     type="text"
                     value={boardSlug}
                     onChange={(e) => {
@@ -181,12 +181,13 @@ const GreenHouseContactPage = () => {
                 <p className="text-xs text-gray-500 mt-1">We’ll build the full URL for you.</p>
               </div>
             </div>
-
-            {/* Harvest API Key */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700 flex items-center">Harvest API Key <InfoTooltip text={"Generate this in Greenhouse: Configure → Dev Center → API Credential Management → Create New API Key."} /></label>
+              <label htmlFor="harvestApiKey" className="text-sm font-medium text-gray-700 flex items-center">
+                Harvest API Key <InfoTooltip text={"Generate this in Greenhouse: Configure → Dev Center → API Credential Management → Create New API Key."} />
+              </label>
               <div className="sm:col-span-2">
                 <input
+                  id="harvestApiKey"
                   type="text"
                   value={harvestApiKey}
                   onChange={(e) => setHarvestApiKey(e.target.value)}
@@ -194,12 +195,13 @@ const GreenHouseContactPage = () => {
                 />
               </div>
             </div>
-
-            {/* On-Behalf-Of User ID */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700 flex items-center">On-Behalf-Of User ID <InfoTooltip text={"In Greenhouse: Configure → Users → click the API key owner → copy the number from the URL."} /></label>
+              <label htmlFor="onBehalfOf" className="text-sm font-medium text-gray-700 flex items-center">
+                On-Behalf-Of User ID <InfoTooltip text={"In Greenhouse: Configure → Users → click the API key owner → copy the number from the URL."} />
+              </label>
               <div className="sm:col-span-2">
                 <input
+                  id="onBehalfOf"
                   placeholder="On-Behalf-Of User ID"
                   type="text"
                   value={onBehalfOf}
@@ -208,7 +210,6 @@ const GreenHouseContactPage = () => {
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <div className="sm:col-start-2 sm:col-span-2 flex justify-end">
                 <button

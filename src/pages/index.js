@@ -160,6 +160,7 @@ const HomePage = () => {
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
                     style={{ transform: `rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)` }}
+                    role="presentation"
                   >
                     <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20" />
                     <video

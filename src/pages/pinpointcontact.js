@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import Layout1 from "../components/Layout1";
-import SEO1 from "../components/SEO1";
 import "aos/dist/aos.css";
 
 const InfoTooltip = ({ text }) => (
-  <span className="relative group inline-flex items-center align-middle ml-1" tabIndex={0} aria-label={text}>
+  <span className="relative group inline-flex items-center align-middle ml-1" aria-label={text}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-gray-400 group-hover:text-gray-700">
       <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm.75 15.5h-1.5v-6h1.5v6zm0-8h-1.5v-1.5h1.5V9.5z" />
     </svg>
-    <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 z-10 rounded bg-gray-900 text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition shadow-lg whitespace-normal break-words leading-snug min-w-[16rem] w-[28rem] sm:w-[30rem] max-w-[90vw]">      {text}
+    <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 z-10 rounded bg-gray-900 text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition shadow-lg whitespace-normal break-words leading-snug min-w-[16rem] w-[28rem] sm:w-[30rem] max-w-[90vw]">
+      {text}
     </span>
   </span>
 );
@@ -98,9 +97,10 @@ const PinpointContactPage = () => {
         <form onSubmit={handleContactSubmit} className="space-y-5 max-w-xl mx-auto" >
           <div className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">First Name<span className="text-red-500">*</span></label>
+              <label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name<span className="text-red-500">*</span></label>
               <div className="sm:col-span-2">
                 <input
+                  id="firstName"
                   type="text"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
@@ -109,11 +109,11 @@ const PinpointContactPage = () => {
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Last Name<span className="text-red-500">*</span></label>
+              <label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name<span className="text-red-500">*</span></label>
               <div className="sm:col-span-2">
                 <input
+                  id="lastName"
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
@@ -122,11 +122,11 @@ const PinpointContactPage = () => {
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Email<span className="text-red-500">*</span></label>
+              <label htmlFor="email" className="text-sm font-medium text-gray-700">Email<span className="text-red-500">*</span></label>
               <div className="sm:col-span-2">
                 <input
+                  id="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -135,11 +135,11 @@ const PinpointContactPage = () => {
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Company<span className="text-red-500">*</span></label>
+              <label htmlFor="company" className="text-sm font-medium text-gray-700">Company<span className="text-red-500">*</span></label>
               <div className="sm:col-span-2">
                 <input
+                  id="company"
                   type="text"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
@@ -148,11 +148,11 @@ const PinpointContactPage = () => {
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Pinpoint Sub-Domain</label>
+              <label htmlFor="subDomain" className="text-sm font-medium text-gray-700">Pinpoint Sub-Domain</label>
               <div className="sm:col-span-2">
                 <input
+                  id="subDomain"
                   type="text"
                   value={subDomain}
                   placeholder="yourcompany.pinpointhq.com"
@@ -161,11 +161,11 @@ const PinpointContactPage = () => {
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700 flex items-center">API Key <InfoTooltip text={"Generate this in Pinpoint."} /></label>
+              <label htmlFor="apiKey" className="text-sm font-medium text-gray-700 flex items-center">API Key <InfoTooltip text={"Generate this in Pinpoint."} /></label>
               <div className="sm:col-span-2">
                 <input
+                  id="apiKey"
                   type="text"
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
@@ -173,11 +173,11 @@ const PinpointContactPage = () => {
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label className="text-sm font-medium text-gray-700">Pinpoint Webhook Signing Secret</label>
+              <label htmlFor="webhookSecret" className="text-sm font-medium text-gray-700">Pinpoint Webhook Signing Secret</label>
               <div className="sm:col-span-2">
                 <input
+                  id="webhookSecret"
                   type="text"
                   value={webhookSecret}
                   onChange={(e) => setWebhookSecret(e.target.value)}
@@ -185,7 +185,6 @@ const PinpointContactPage = () => {
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <div className="sm:col-start-2 sm:col-span-2 flex justify-end">
                 <button
