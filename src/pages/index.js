@@ -71,6 +71,10 @@ const HomePage = () => {
     }
   };
 
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -139,18 +143,31 @@ const HomePage = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <img
-                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/I'm+looking+for+talent.png"
-                alt="In-app chat mockup"
-                className="w-full h-full object-contain block"
-                loading="lazy"
-              />
-              <img
-                src="https://jobminglr-website.s3.us-east-1.amazonaws.com/I'm+a+job+seeker.png"
-                alt="In-app chat mockup"
-                className="w-full h-full object-contain block"
-                loading="lazy"
-              />
+              <button
+                type="button"
+                onClick={() => scrollToSection("jobMinglrForRecruiterSection")}
+                className="block focus:outline-none focus:ring-2 focus:ring-white/70 rounded-lg"
+              >
+                <img
+                  src="https://jobminglr-website.s3.us-east-1.amazonaws.com/I'm+looking+for+talent.png"
+                  alt="In-app chat mockup"
+                  className="w-full h-full object-contain block"
+                  loading="lazy"
+                />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection("jobMinglrForSeekersSection")}
+                className="block focus:outline-none focus:ring-2 focus:ring-white/70 rounded-lg"
+              // className="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#002923] text-white font-semibold shadow hover:brightness-95 transition"
+              >
+                <img
+                  src="https://jobminglr-website.s3.us-east-1.amazonaws.com/I'm+a+job+seeker.png"
+                  alt="In-app chat mockup"
+                  className="w-full h-full object-contain block"
+                  loading="lazy"
+                />
+              </button>
               <div className="container mx-auto max-w-6xl relative md:col-span-2">
                 <div className="text-center mb-10">
                 </div>
