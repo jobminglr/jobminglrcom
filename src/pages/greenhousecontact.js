@@ -23,6 +23,8 @@ const GreenHouseContactPage = () => {
   const [boardToken, setBoardToken] = useState("https://boards.greenhouse.io/");
   const [boardSlug, setBoardSlug] = useState("");
   const [harvestApiKey, setHarvestApiKey] = useState("");
+  const [jobBoardApiKey, setJobBoardApiKey] = useState("");
+  const [authMethod, setAuthMethod] = useState("jobBoard");
   const [onBehalfOf, setOnBehalfOf] = useState("");
   const [message, setMessage] = useState("");
 
@@ -31,11 +33,15 @@ const GreenHouseContactPage = () => {
 
     const fullName = `${firstName} ${lastName}`.trim();
 
+    const credentialLines = authMethod === 'harvest'
+      ? [harvestApiKey && `Harvest API Key: ${harvestApiKey}`, onBehalfOf && `On-Behalf-Of User ID: ${onBehalfOf}`]
+      : [jobBoardApiKey && `Job Board API Key: ${jobBoardApiKey}`];
+
     const composedMessage = [
       company && `Company: ${company}`,
       boardToken && `Job Board Link: ${boardToken}`,
-      harvestApiKey && `Harvest API Key: ${harvestApiKey}`,
-      onBehalfOf && `On-Behalf-Of User ID: ${onBehalfOf}`,
+      `Auth Method: ${authMethod === 'harvest' ? 'Harvest API' : 'Job Board API'}`,
+      ...credentialLines,
       message && `Message: ${message}`,
     ]
       .filter(Boolean)
@@ -67,6 +73,8 @@ const GreenHouseContactPage = () => {
         setBoardToken("https://boards.greenhouse.io/");
         setBoardSlug("");
         setHarvestApiKey("");
+        setJobBoardApiKey("");
+        setAuthMethod('jobBoard');
         setOnBehalfOf("");
         setMessage("");
       } else {
@@ -181,35 +189,86 @@ const GreenHouseContactPage = () => {
                 <p className="text-xs text-gray-500 mt-1">We’ll build the full URL for you.</p>
               </div>
             </div>
+            {/* Authentication method selection */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label htmlFor="harvestApiKey" className="text-sm font-medium text-gray-700 flex items-center">
-                Harvest API Key <InfoTooltip text={"Generate this in Greenhouse: Configure → Dev Center → API Credential Management → Create New API Key."} />
-              </label>
-              <div className="sm:col-span-2">
-                <input
-                  id="harvestApiKey"
-                  type="text"
-                  value={harvestApiKey}
-                  onChange={(e) => setHarvestApiKey(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
-                />
+              <label className="text-sm font-medium text-gray-700">Auth method</label>
+              <div className="sm:col-span-2 flex items-center gap-6">
+                <label className="inline-flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="authMethod"
+                    value="jobBoard"
+                    checked={authMethod === 'jobBoard'}
+                    onChange={() => setAuthMethod('jobBoard')}
+                    className="accent-brandGreen"
+                  />
+                  <span className="text-sm">Job Board API</span>
+                </label><label className="inline-flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="authMethod"
+                    value="harvest"
+                    checked={authMethod === 'harvest'}
+                    onChange={() => setAuthMethod('harvest')}
+                    className="accent-brandGreen"
+                  />
+                  <span className="text-sm">Harvest API</span>
+                </label>
+
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
-              <label htmlFor="onBehalfOf" className="text-sm font-medium text-gray-700 flex items-center">
-                On-Behalf-Of User ID <InfoTooltip text={"In Greenhouse: Configure → Users → click the API key owner → copy the number from the URL."} />
-              </label>
-              <div className="sm:col-span-2">
-                <input
-                  id="onBehalfOf"
-                  placeholder="On-Behalf-Of User ID"
-                  type="text"
-                  value={onBehalfOf}
-                  onChange={(e) => setOnBehalfOf(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
-                />
+
+            {/* Conditional: Harvest fields */}
+            {authMethod === 'harvest' && (
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+                  <label htmlFor="harvestApiKey" className="text-sm font-medium text-gray-700 flex items-center">
+                    Harvest API Key <InfoTooltip text={"Generate this in Greenhouse: Configure → Dev Center → API Credential Management → Create New API Key."} />
+                  </label>
+                  <div className="sm:col-span-2">
+                    <input
+                      id="harvestApiKey"
+                      type="text"
+                      value={harvestApiKey}
+                      onChange={(e) => setHarvestApiKey(e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+                  <label htmlFor="onBehalfOf" className="text-sm font-medium text-gray-700 flex items-center">
+                    On-Behalf-Of User ID <InfoTooltip text={"In Greenhouse: Configure → Users → click the API key owner → copy the number from the URL."} />
+                  </label>
+                  <div className="sm:col-span-2">
+                    <input
+                      id="onBehalfOf"
+                      placeholder="On-Behalf-Of User ID"
+                      type="text"
+                      value={onBehalfOf}
+                      onChange={(e) => setOnBehalfOf(e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
+                    />
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Conditional: Job Board API Key */}
+            {authMethod === 'jobBoard' && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 items-center">
+                <label htmlFor="jobBoardApiKey" className="text-sm font-medium text-gray-700">Job Board API Key</label>
+                <div className="sm:col-span-2">
+                  <input
+                    id="jobBoardApiKey"
+                    type="text"
+                    value={jobBoardApiKey}
+                    onChange={(e) => setJobBoardApiKey(e.target.value)}
+                    placeholder="Job Board API Key"
+                    className="w-full px-4 py-3 border border-gray-300 rounded shadow-sm"
+                  />
+                </div>
               </div>
-            </div>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <div className="sm:col-start-2 sm:col-span-2 flex justify-end">
                 <button
